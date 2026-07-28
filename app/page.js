@@ -46,7 +46,7 @@ function Header({ activeTab, setActiveTab }) {
 
         <div className="header-actions">
           <a 
-            href="https://www.linkedin.com/posts/publichealth-socialenterprise-digitalhealth-share-7426090646412800001-E66m/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZvC4gBKTDy1mVsYINmpQsqYJnri7Kb8_U" 
+            href="https://www.linkedin.com/company/steve-michael-consulting-group/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="header-linkedin-link"

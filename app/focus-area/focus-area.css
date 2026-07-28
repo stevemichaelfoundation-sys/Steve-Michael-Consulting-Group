@@ -1,0 +1,185 @@
+
+.focus-dashboard-canvas {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 5rem 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.focus-hero-masthead {
+  max-width: 1140px;
+  margin: 0 auto 3rem auto;
+  padding: 0 2rem;
+  text-align: left;
+}
+
+.focus-main-heading {
+  font-size: 3.25rem;
+  font-weight: 400; 
+  color: #333333;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.01em;
+}
+
+.focus-subheading-intro {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 750px;
+  color: #555555;
+  margin: 0;
+}
+
+.focus-content-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.selection-label-heading {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1e223c;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid #dfba6b; 
+  padding-bottom: 0.85rem;
+  margin-bottom: 3.5rem;
+  text-transform: uppercase;
+}
+
+.focus-stacked-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.focus-article-row-card {
+  display: flex;
+  gap: 3.5rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.focus-article-row-card.layout-reverse {
+  flex-direction: row-reverse;
+}
+
+.focus-graphic-frame {
+  flex: 0 0 400px;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.graphic-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.placeholder-icon-badge {
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.placeholder-text-meta {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+.focus-text-details-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.focus-card-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #0d3b66; 
+  margin: 0 0 0.75rem 0;
+}
+
+.focus-card-lead-desc {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #4a5568;
+  margin: 0 0 1.25rem 0;
+}
+
+.focus-bullets-list-wrapper {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.focus-bullet-node-item {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4a5568;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.focus-bullet-node-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #dfba6b;
+  font-size: 1.2rem;
+}
+
+.focus-action-request-btn {
+  background-color: #001f3f; 
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background-color 0.15s ease;
+}
+
+.focus-action-request-btn:hover {
+  background-color: #dfba6b; 
+  color: #001f3f;
+}
+
+.tone-purple { background-color: #2b4a65; }
+.tone-green { background-color: #3f9b6c; }
+.tone-pink { background-color: #e8628a; }
+
+@media (max-width: 900px) {
+  .focus-article-row-card,
+  .focus-article-row-card.layout-reverse {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .focus-graphic-frame {
+    width: 100%;
+    flex: 0 0 200px;
+    height: 200px;
+  }
+  .focus-main-heading {
+    font-size: 2.35rem;
+  }
+}

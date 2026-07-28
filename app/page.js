@@ -1,66 +1,512 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+import { useState, useEffect } from "react";
+
+// Navigation mapping infrastructure array
+const NAV_ITEMS = [
+  { label: "What we do", id: "what-we-do" },
+  { label: "Our programs", id: "our-programs" },
+  { label: "About us", id: "about-us" },
+  { label: "Our research", id: "our-research" },
+  { label: "Events", id: "events" },
+];
+
+/* --- GLOBAL BRANDING HEADER LAYER CONTEXT --- */
+function Header({ activeTab, setActiveTab }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <header className="header">
+      <div className="header-inner">
+        <button 
+          onClick={() => setActiveTab("home")} 
+          className="logo-btn" 
+          aria-label="Go to Home"
+        >
+          <img
+              src="/logo-img.jpg"
+              alt="Steve & Michael consutlutation logo"
+              style={{ width: "130px", height: "110px", borderRadius: "8px", objectFit: "cover", background: "#fff" }}
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        </button>
+
+        <nav className="nav">
+          {NAV_ITEMS.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveTab(item.id)}
+              className={`nav-item${activeTab === item.id ? " active" : ""}`}
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        <div className="header-actions">
+          <a 
+            href="https://www.linkedin.com/posts/publichealth-socialenterprise-digitalhealth-share-7426090646412800001-E66m/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZvC4gBKTDy1mVsYINmpQsqYJnri7Kb8_U" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="header-linkedin-link"
+            aria-label="Visit our LinkedIn Profile"
           >
-            Documentation
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
           </a>
+
+          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+          </button>
         </div>
-      </main>
+      </div>
+    </header>
+  );
+}
+
+function PlaceholderImage({ label, tone = "purple" }) {
+  return (
+    <div role="img" aria-label={label} className={`placeholder-image placeholder-${tone}`}>
+      <span className="placeholder-label">
+        {label}
+        <br />
+        <span className="placeholder-sub">Replace with your photo</span>
+      </span>
     </div>
   );
+}
+
+function ImageTextRow({ eyebrow, title, body, imageLabel, tone = "purple", reverse = false }) {
+  return (
+    <div className={`image-text-row${reverse ? " reverse" : ""}`}>
+      <PlaceholderImage label={imageLabel} tone={tone} />
+      <div>
+        <p className={`eyebrow eyebrow-${tone}`}>{eyebrow}</p>
+        <h2 className="row-title">{title}</h2>
+        <p className="row-body">{body}</p>
+      </div>
+    </div>
+  );
+}
+
+function FolderCard({ title, description, href, tone }) {
+  return (
+    <Link href={href} className="folder-card">
+      <span className={`folder-tab folder-tab-${tone}`} aria-hidden="true" />
+      <div className={`folder-body folder-bg-${tone}`}>
+        <h3 className="folder-title">{title}</h3>
+        <p className="folder-desc">{description}</p>
+        <span className="folder-link">Open folder →</span>
+      </div>
+    </Link>
+  );
+}
+
+function HeroSection({ setActiveTab }) {
+  return (
+    <section className="main-hero-section">
+      <div className="main-hero-inner">
+        <div className="hero-tag-badge">
+          <span className="badge-dot" />
+          PUBLIC HEALTH • SOCIAL ENTERPRISE • EST. 2023
+        </div>
+        <h1 className="main-hero-title">
+          Building <span className="highlight-text">resilient</span> health systems for the future
+        </h1>
+        <p className="main-hero-description">
+          We collaborate with governments, NGOs, and academic institutions to design 
+          sustainable public health solutions — powered by research, technology, and measurable impact.
+        </p>
+        <div className="hero-action-buttons">
+          <button 
+            onClick={() => setActiveTab("what-we-do")} 
+            className="btn-primary"
+            style={{ border: "none", cursor: "pointer", textAlign: "center" }}
+          >
+            Explore our services →
+          </button>
+          <button 
+            onClick={() => setActiveTab("our-research")} 
+            className="btn-secondary"
+            style={{ cursor: "pointer", textAlign: "center" }}
+          >
+            See our impact
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CounterItem({ config }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const end = config.target;
+    if (start === end) return;
+    const duration = 1500;
+    const incrementTime = Math.max(Math.floor(duration / end), 15);
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      }
+    }, incrementTime);
+    return () => clearInterval(timer);
+  }, [config.target]);
+
+  return (
+    <div className="scope-stat-item">
+      <span className="scope-stat-number">
+        {config.prefix || ""}{count}{config.suffix}
+      </span>
+      <span className="scope-stat-label">{config.label}</span>
+    </div>
+  );
+}
+
+function ScopeSection() {
+  const statsConfig = [
+    { target: 40, suffix: "+", label: "Projects delivered" },
+    { target: 12, suffix: "", label: "Countries reached" },
+    { target: 2, suffix: "M+", prefix: "$", label: "Grants secured" },
+  ];
+  const tags = ["Digital Health", "AI in Healthcare", "Capacity Building", "Grant Writing", "Nutrition Systems"];
+
+  return (
+    <section className="scope-section">
+      <div className="scope-card">
+        <div className="scope-bg-circle-top" />
+        <div className="scope-bg-circle-bottom" />
+        <p className="scope-eyebrow">OUR SCOPE OF WORK</p>
+        <h2 className="scope-title">From research <br /> to real-world impact</h2>
+        <div className="scope-stats-grid">
+          {statsConfig.map((config, index) => (
+            <CounterItem key={index} config={config} />
+          ))}
+        </div>
+        <div className="scope-tags-flex">
+          {tags.map((tag, index) => (
+            <span key={index} className="scope-tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-inner-grid">
+        <div className="footer-brand-col">
+          <div className="footer-logo-wrapper">
+            <h3 className="footer-brand-title">Steve & Michael<br />Consulting Group</h3>
+          </div>
+          <p className="footer-brand-desc">A public health–focused social enterprise committed to advancing health practice through innovation, research, and strategic capacity building.</p>
+        </div>
+        <div className="footer-links-wrapper">
+          <div className="footer-link-group">
+            <span className="footer-group-heading">Services</span>
+            <Link href="/services/digital-health" className="footer-nav-link">Digital Health & AI</Link>
+            <Link href="/services/capacity-building" className="footer-nav-link">Capacity Building</Link>
+            <Link href="/services/nutrition-systems" className="footer-nav-link">Nutrition Systems</Link>
+          </div>
+          <div className="footer-link-group">
+            <span className="footer-group-heading">Contact</span>
+            <Link href="/contact" className="footer-nav-link">Get in touch</Link>
+          </div>
+        </div>
+      </div>
+      <div className="footer-bottom-bar">
+        <p>© {new Date().getFullYear()} Steve & Michael Consulting Group. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+}
+
+/* --- VIEW TARGET: WHAT WE DO WORKSPACE --- */
+function WhatWeDoView() {
+  const foldersData = [
+    { title: "AI and Digital Healthcare", description: "Integrating next-generation intelligence mechanisms, machine learning diagnostics, and advanced secure database workflows directly into local healthcare clinic operations.", tone: "purple" },
+    { title: "Grant Writing", description: "Securing capital requirements through competitive research, pipeline tracking, structural proposal design, and metric verification frameworks for international NGOs.", tone: "green" },
+    { title: "Healthcare Professional Capacity Building", description: "Empowering frontline physicians, operational clinic leaders, and technicians with systemic on-site educational workshops and modern medical handling frameworks.", tone: "pink" },
+    { title: "Nutrition", description: "Designing regional dietary defense programs, community monitoring pipelines, and nutritional supply chains to combat regional resource scarcity.", tone: "purple" }
+  ];
+
+    return (
+    <div style={{ backgroundColor: "#ffffff", animation: "fadeIn 0.4s ease" }}>
+      <div className="home-marquee-container">
+        <div className="home-marquee-track">
+          <span>WE PROVIDE CONSULTING ON PUBLIC HEALTH • WE PROVIDE CONSULTING ON PUBLIC HEALTH • </span>
+          <span>WE PROVIDE CONSULTING ON PUBLIC HEALTH • WE PROVIDE CONSULTING ON PUBLIC HEALTH • </span>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: "1100px", margin: "5rem auto", padding: "0 2rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "4rem" }}>
+          {foldersData.map((folder, index) => (
+            <div 
+              key={index} 
+              className="home-vertical-row" 
+              style={{ display: "flex", gap: "3rem", alignItems: "center", flexDirection: index % 2 === 0 ? "row" : "row-reverse" }}
+            >
+              <div style={{ flex: 1, minHeight: "220px" }}>
+                <FolderCard title={folder.title} description={folder.description} href="#" tone={folder.tone} />
+              </div>
+              <div style={{ flex: 1 }}>
+                <h3 style={{ fontSize: "1.75rem", color: "#2b4a65", marginBottom: "1rem", fontWeight: "700" }}>{folder.title}</h3>
+                <p style={{ color: "#4a5568", lineHeight: "1.6", fontSize: "1.05rem" }}>{folder.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+/* --- VIEW TARGET: ABOUT US INTERACTIVE GLASS CARD VIEW --- */
+function AboutUsView() {
+  return (
+    <div className="about-container">
+      <div className="about-hero-backdrop">
+        <div className="about-dark-overlay" />
+        
+        <div className="about-content-wrapper">
+          <span className="about-eyebrow">ABOUT OUR FIRM</span>
+          <h1 className="about-main-title">Welcome to Steve & Michael Consulting Group</h1>
+          
+          <div className="about-cards-grid">
+            <div className="about-glass-card">
+              <div className="about-card-badge">OUR FOUNDATION</div>
+              <p className="about-card-text">
+                At Steve & Michael Consulting Group is a public health–focused social enterprise 
+                committed to advancing the practice of public health through innovation, research, 
+                and strategic capacity building. We collaborate with government agencies, NGOs, 
+                health organizations, and academic institutions to design and implement sustainable 
+                solutions that strengthen health systems and improve population well-being.
+              </p>
+              <p className="about-card-text">
+                Our expertise spans digital health, AI in healthcare, capacity building of health 
+                professionals, nutrition and food systems, and evidence-based public health practice. 
+                We support clients in developing and managing research and development projects, 
+                crafting competitive grants and proposals, and integrating technology-driven approaches 
+                to enhance health service delivery and decision-making.
+              </p>
+            </div>
+
+            <div className="about-glass-card">
+              <div className="about-card-badge">OUR MISSION & SOCIAL IMPACT</div>
+              <p className="about-card-text">
+                As a mission-driven organization, we reinvest our expertise and resources into 
+                initiatives that empower communities and promote equitable access to health innovation. 
+                Through our work, we bridge the gap between research and practice—helping organizations 
+                adopt data-driven strategies, leverage digital innovations, and build resilient health systems.
+              </p>
+              <p className="about-card-text highlighted-mission">
+                At Steve & Michael Consulting Group, our mission is to harness technology, research, 
+                and collaboration to build healthier, more resilient communities—advancing public health 
+                practice while driving measurable social impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* --- VIEW TARGET: OUR RESEARCH ROADMAP INFOGRAPHIC --- */
+function OurResearchView() {
+  const roadmapData = [
+    {
+      period: "2026–2028",
+      title: "Digital Health Acceleration",
+      description: "Telemedicine, wearables, AI intensive battery analysis, personalized AI diagnostics (2026–2028)",
+      milestoneYear: "2028",
+      colorTheme: "#117a85",
+      iconPath: "M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 18c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-4H7V6h10v11z"
+    },
+    {
+      period: "2027–2031",
+      title: "Preventive Health Revolution",
+      description: "Predictive analysis, further personalization, harnessing experience concepts, and promoting available health innovations.",
+      milestoneYear: "2031",
+      colorTheme: "#e6a120",
+      iconPath: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"
+    },
+    {
+      period: "2029–2034",
+      title: "Preventive Health Revolution II",
+      description: "Predictive analytics / personalized wellness based on social determinants.",
+      milestoneYear: "2034",
+      colorTheme: "#ef7e22",
+      iconPath: "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+    },
+    {
+      period: "2032–2034",
+      title: "Community Health Resilience",
+      description: "For well-adapted utilization, touch the added inclusive health consortium innovate.",
+      milestoneYear: "2035",
+      colorTheme: "#b81d24",
+      iconPath: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+    },
+    {
+      period: "2035–2036",
+      title: "Global Health Renaissance",
+      description: "This further fast acceleration medicine replete with outcome edens using basic agility, actual failure.",
+      milestoneYear: "2036",
+      colorTheme: "#401342",
+      iconPath: "M12 22c5.523 0 10-4.577 10-10.222C22 6.133 17.523 1.5 12 1.5S2 6.133 2 11.778C2 17.423 6.423 22 12 22zm1-14.778h-2v4.444h4v-1.481h-2V7.222z"
+    }
+  ];
+
+  const attachedDocuments = [
+    { title: "2026 Digital Health Acceleration Framework.pdf", filename: "digital-health-acceleration-2026.pdf", type: "PDF Report", size: "2.4 MB" },
+    { title: "Preventive Health Infrastructure & Social Determinants Analysis.docx", filename: "preventive-health-determinants.docx", type: "Word Document", size: "1.8 MB" },
+    { title: "Strategic Roadmap: Imaginary on the Future of Health.pdf", filename: "future-of-health-roadmap.pdf", type: "PDF Brief", size: "4.1 MB" }
+  ];
+
+  return (
+    <div className="research-page-container">
+      <section className="research-hero-banner">
+        <h1 className="research-main-title">IMAGINARY ON THE FUTURE OF HEALTH 2026-2036</h1>
+        <p className="research-subtext">Mapping actionable healthcare horizons, trend matrices, and policy recommendations over the upcoming decade.</p>
+      </section>
+
+      <section className="timeline-block-section">
+        <div className="timeline-horizontal-grid">
+          {roadmapData.map((node, index) => (
+            <div key={index} className="timeline-node-column" style={{ '--node-accent': node.colorTheme }}>
+              <div className="node-text-panel">
+                <span className="node-period-tag">{node.period}</span>
+                <h3 className="node-headline">{node.title}</h3>
+                <p className="node-body-summary">{node.description}</p>
+              </div>
+              <div className="node-milestone-marker">
+                <span className="milestone-year-text">{node.milestoneYear}</span>
+                <div className="milestone-arrow-pointer" />
+              </div>
+              <div className="node-graphics-card">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" className="node-icon-svg">
+                  <path d={node.iconPath} />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="research-documents-section">
+        <div className="documents-panel-inner">
+          <div className="docs-header-row">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="docs-section-icon">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" />
+            </svg>
+            <h2>Attached Laptop Research & Strategy Documents</h2>
+          </div>
+          <p className="docs-intro-text">Click the link options below to securely view, inspect, or download the baseline data sheets, analysis documentation briefs, and analytical logs transferred directly from our local workstation server storage pipelines:</p>
+          
+          <div className="documents-download-grid">
+            {attachedDocuments.map((doc, idx) => (
+              <div key={idx} className="document-download-card">
+                <div className="doc-meta-left">
+                  <div className="doc-icon-badge">{doc.type.includes("PDF") ? "PDF" : "DOCX"}</div>
+                  <div className="doc-details-stack">
+                    <span className="doc-card-title">{doc.title}</span>
+                    <span className="doc-card-subinfo">{doc.type} • {doc.size}</span>
+                  </div>
+                </div>
+                <a href={`/${doc.filename}`} download={doc.filename} className="doc-action-download-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Download File
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* --- NEW VIEW TARGET: WHERE WE WORK / BRANCHES SYSTEM --- */
+function BranchesView() {
+
+
+  return (
+    
+    <div className="tab-view-container" style={{ animation: "fadeIn 0.4s ease" }}>
+      <button 
+            onClick={() => setActiveTab("branches")} 
+            className="btn-primary"
+            style={{ border: "none", cursor: "pointer", textAlign: "center" }}
+          >
+            Our programs →
+          </button>
+    </div>
+  );
+}
+
+/* --- MAIN ROOT HOMEPAGE SYSTEM CONTROLLER --- */
+export default function HomePage() {
+  const [activeTab, setActiveTab] = useState("home");
+
+  return (
+    <>
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      <main>
+        {/* State Conditional View Routing Matrix */}
+        {activeTab === "what-we-do" && <WhatWeDoView />}
+        {activeTab === "about-us" && <AboutUsView />}
+        {activeTab === "our-research" && <OurResearchView />}
+        {activeTab === "our-programs" && <BranchesView />}
+
+        {activeTab === "events" && (
+          <div className="tab-view-container">
+            <h2>Upcoming Events</h2>
+            <p>Join our scheduled virtual capacity building workshops, global symposia, and local clinic support summits.</p>
+          </div>
+        )}
+
+        {activeTab === "home" && (
+          <>
+            <HeroSection setActiveTab={setActiveTab} />
+            
+            <section className="rows-section">
+              <ImageTextRow eyebrow="What we do" title="Programs built with for communities" body="We design and deliver programs in partnership with local leaders." imageLabel="/h1.jpg" tone="purple" />
+              <ImageTextRow eyebrow="Our program" title="We work with different people on different aspects" body="Our teams are embedded on the ground across multiple continents." href="/impact-stories" tone="green" reverse />
+              <ImageTextRow eyebrow="Our research" title="Evidence that shapes every decision" body="Our research division studies the long-term effects of our programs." imageLabel="/h3.jpg" tone="pink" />
+            </section>
+            
+            <section className="deeper-section">
+              <div className="deeper-inner">
+                <h2 className="deeper-title">Go deeper</h2>
+                <div className="folder-grid">
+                  <FolderCard title="Our strategy" description="The multi-year plan guiding where and how we invest." href="/our-strategy" tone="purple" />
+                  <FolderCard title="Branches" description="Regional and country offices, and the teams that lead them." href="/branches" tone="green" />
+                  <FolderCard title="Focus area" description="The core issues we concentrate our work around." href="/focus-area" tone="pink" />
+                  <FolderCard title="Impact stories" description="First-hand accounts from the people we work with." href="/impact-stories" tone="purple" />
+                </div>
+              </div>
+            </section>
+            
+            <ScopeSection />
+          </>
+        )}
+      </main>
+<Footer /> 
+</> );
 }

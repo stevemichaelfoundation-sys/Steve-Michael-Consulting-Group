@@ -1,17 +1,18 @@
 import Link from "next/link";
 import "./branches.css";
+import Image from "next/image";
 
 const DEPARTMENTS = [
   {
     key: "Matenal & child health",
     label: "Matenal & child health",
-    description: "A short description of what the Mm department focuses on and who it serves.",
+    description: "We explore maternal and infant mental health to help families live better lives. We use science and data to find new ways to support mothers and babies. Our team works hard to discover what helps parents and infants feel good. We share our facts with doctors and the public.",
     tone: "#3B1F5C",
   },
   {
     key: "Mental health",
     label: "Mental health",
-    description: "A short description of what the Mg department focuses on and who it serves.",
+    description: "We explore mental health to help people live better lives. We use science and data to find new ways to support the mind. Our team works hard to discover what helps people feel good. We share our facts with doctors and the public.",
     tone: "#3F9B6C",
   },
   {
@@ -197,25 +198,94 @@ export default function BranchHomePage() {
 
         </div>
       </section>
-
      
-      {/* --- DEPARTMENTS SECTIONS --- */}
-      <section className="dept-section">
-        <h2>Departments</h2>
-        <div className="dept-grid">
-          {DEPARTMENTS.map((d) => (
-            <Link key={d.key} href={`/branches/${d.key}`} className="dept-card">
-              <div className="dept-card-image" style={{ backgroundColor: d.tone }}>
-                {d.label} department photo
-              </div>
-              <div className="dept-card-body">
-                <span className="dept-card-label">{d.label}</span>
-                <p className="dept-card-desc">{d.description}</p>
-              </div>
-            </Link>
-          ))}
+    <section className="sustainability-section">
+      <div className="container-inner">
+
+        {/* SECTION 1 */}
+        <div className="content-row">
+          <div className="image-column">
+          <div className="image-wrapper relative w-full h-[300px]">
+                           <Image 
+                        src="/h1.jpg"
+                            alt="Herbs" 
+                                    fill 
+                                  className="object-cover" 
+                                       priority 
+                                   />
+                                   </div>
+          </div>
+          <div className="text-column">
+            <h1>Maternal and child Health.</h1>
+            <p>Maternal and Child Health (MCH) is a critical public health framework dedicated to optimizing the health, development, and well-being of women, neonates, and children. By addressing systemic health disparities and advancing clinical interventions during vital life stages, MCH initiatives directly reduce preventable mortality, improve birth outcomes, and establish life-long foundations for community health.</p>
+    
+          </div>
         </div>
-      </section>
-    </>
+
+        {/* TRANSITION */}
+        <div className="transition-banner">
+          <p>everaging Artificial Intelligence (AI) represents a transformative frontier in public health. This approach integrates predictive analytics, machine learning, and automated clinical tools into the traditional MCH framework. By converting complex biomatic data into actionable clinical insights, this intersection directly targets the reduction of maternal and infant mortality, addresses systemic health disparities, and optimizes global healthcare delivery.</p>
+        </div>
+
+        {/* SECTION 2 */}
+        <div>
+          <h2 className="heading-title">SOURCING</h2>
+          <div className="content-row">
+            <div className="image-column">
+              <div className="image-wrapper relative w-full h-[300px]">
+                           <Image 
+                        src="/used.jpg"
+                            alt="Herbs" 
+                                    fill 
+                                  className="object-cover" 
+                                       priority 
+                                   />
+                                   </div>
+            </div>
+            <div className="text-column">
+              <h3 className="subheading-title">Mental Health</h3>
+              <p>Mental health encompasses cognitive, behavioral, and emotional well-being. It determines how individuals navigate stress, engage with their communities, and make decisions. In the landscape of modern research and grant development, the field focuses on understanding neurobiological mechanisms, optimizing early interventions, and ensuring equitable access to care</p>
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 3 */}
+        <div className="sourcing-footer-block">
+          <h1 className="heading-title"> Child Education and development skills</h1>
+          <p className="supplier-code-text"> We believe that early childhood education and development skills are the cornerstones of lifelong success and community resilience. This department focuses on nurturing young minds by bridging academic fundamentals with essential life skills. By implementing evidence-based learning strategies and engaging directly with families, we cultivate environments where children can develop critical thinking, emotional resilience, and practical capabilities. Our targeted programs work to eliminate educational barriers, ensure cognitive milestones are met, and equip the next generation with the foundational tools they need to navigate school, discover their unique potential, and thrive healthily into adulthood.</p>
+         
+        </div>
+
+          <div>
+          <h2 className="heading-title">Education for all</h2>
+          <div className="content-row">
+            <div className="image-column">
+              <div className="image-wrapper relative w-full h-[300px]">
+                           <Image 
+                        src="/h3.jpg"
+                            alt="Herbs" 
+                                    fill 
+                                  className="object-cover" 
+                                       priority 
+                                   />
+                                   </div>
+            </div>
+            <div className="text-column">
+              <h3 className="subheading-title"></h3>
+              <p>Mental health encompasses cognitive, behavioral, and emotional well-being. It determines how individuals navigate stress, engage with their communities, and make decisions. In the landscape of modern research and grant development, the field focuses on understanding neurobiological mechanisms, optimizing early interventions, and ensuring equitable access to care</p>
+            </div>
+          </div>
+        </div>
+
+
+        {/* BOTTOM SECTION */}
+        <div className="bottom-divider">
+          <h3>Empowering communities to thrive in good health and live life to its happiest, healthiest potential.</h3>
+        </div>
+
+      </div>
+    </section>
+</>
   );
+
 }

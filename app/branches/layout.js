@@ -66,10 +66,9 @@ export default function BranchLayout({ children }) {
           <div className="branch-footer-col">
             <h4>Departments</h4>
             <Link href="/branches/mm">Mental & Health</Link>
-            <Link href="/branches/mg"> Me</Link>
-            <Link href="/branches/ad">Ad</Link>
-            <Link href="/branches/ch">Ch</Link>
-            <Link href="/branches/hc">HC</Link>
+            <Link href="/branches/mg"> Maternal & child care</Link>
+            <Link href="/branches/ad">Adolscent sexual & Reproductive</Link>
+            <Link href="/branches/ch">Child Education & Development Skills</Link>
           </div>
           <div className="branch-footer-col">
             <h4>Contact</h4>

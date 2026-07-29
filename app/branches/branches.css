@@ -215,3 +215,138 @@
 
 .badge-myth-label { font-size: 10px; font-weight: 800; color: #dc2626; text-transform: uppercase; letter-spacing: 0.04em; }
 .badge-fact-label { font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Core Section Layout */
+.sustainability-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #334155;
+}
+
+.container-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+/* Flex Row & Alternating Columns */
+.content-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .content-row {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  .content-row.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Image Handling */
+.image-wrapper {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .image-column, .text-column {
+    width: 50%;
+  }
+}
+
+.text-column p {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.text-column p:last-child {
+  margin-bottom: 0;
+}
+
+.heading-title {
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #1e3a8a;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.subheading-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.transition-banner {
+  text-align: center;
+  max-width: 42rem;
+  margin: 4rem auto;
+}
+
+.transition-banner p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #2563eb;
+  line-height: 1.625;
+}
+
+.sourcing-footer-block {
+  text-align: center;
+  max-width: 48rem;
+  margin: 4rem auto 0 auto;
+}
+
+.supplier-code-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1e40af;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.deforestation-text {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #475569;
+  margin-bottom: 1.5rem;
+}
+
+.italic-closing-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Bottom Divider */
+.bottom-divider {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.bottom-divider h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #0f172a;
+  text-transform: uppercase;
+}

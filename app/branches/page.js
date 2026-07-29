@@ -4,82 +4,115 @@ import Image from "next/image";
 
 const DEPARTMENTS = [
   {
-    key: "Matenal & child health",
-    label: "Matenal & child health",
+    key: "Maternal & child health",
+    label: "Maternal & Child Health",
     description: "We explore maternal and infant mental health to help families live better lives. We use science and data to find new ways to support mothers and babies. Our team works hard to discover what helps parents and infants feel good. We share our facts with doctors and the public.",
     tone: "#3B1F5C",
   },
   {
     key: "Mental health",
-    label: "Mental health",
+    label: "Mental Health",
     description: "We explore mental health to help people live better lives. We use science and data to find new ways to support the mind. Our team works hard to discover what helps people feel good. We share our facts with doctors and the public.",
     tone: "#3F9B6C",
   },
   {
-    key: "Adolscent sexual & Reproductive",
-    label: "Adolscent sexual & Reproductive",
-    description: "A short description of what the Ad department focuses on and who it serves.",
+    key: "Adolescent sexual & Reproductive",
+    label: "Adolescent Sexual & Reproductive Health",
+    description: "A specialized research focus delivering crucial data, community toolkits, and evidence-based frameworks to directly improve adolescent well-being and health rights.",
     tone: "#E8628A",
   },
   {
     key: "Child Education & Development Skills",
-    label: "Ch",
-    description: "A short description of what the Ch department focuses on and who it serves.",
+    label: "Child Education & Development Skills",
+    description: "Nurturing young minds by bridging academic fundamentals with essential life skills, ensuring early milestones are met through rigorous evidence-based learning strategies.",
     tone: "#5B3A82",
   },
 ];
 
 const STATS = [
-  { num: "4", label: "Programs" },
-  { num: "2", label: "Countries covered" },
-  { num: "12+", label: "Active programs" },
-  { num: "30+", label: "Staff on the ground" },
+  { num: "4", label: "Core Programs" },
+  { num: "2", label: "Countries Covered" },
+  { num: "12+", label: "Active Frameworks" },
+  { num: "30+", label: "Researchers on the Ground" },
 ];
 
 export default function BranchHomePage() {
   return (
-    <>
-      {/* Hero Section */}
+    <div className="homepage-wrapper">
+      {/* Premium Hero Section */}
       <section className="branch-hero">
-        <h1>Coordinating our work across the World</h1>
-        <p>A short overview of this branch's mission and reach goes here.</p>
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <span className="hero-eyebrow">Global Research & Impact Alliance</span>
+          <h1>Coordinating our work across the World</h1>
+          <p>Advancing public health, mental well-being, and educational frameworks through rigorous data-driven science and community partnerships.</p>
+          <div className="hero-actions">
+            <Link href="#departments" className="btn-primary">Explore Research</Link>
+            <Link href="/branches/about-us" className="btn-secondary">Partner With Us</Link>
+          </div>
+        </div>
       </section>
 
-      {/* Feature Grid */}
-      <div className="branch-feature-grid">
+      {/* Stats Bar (Inspiration Aligned) */}
+      <section className="branch-stats">
+        <div className="stats-inner">
+          {STATS.map((s) => (
+            <div key={s.label} className="stat-item">
+              <div className="branch-stat-num">{s.num}</div>
+              <div className="branch-stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Dynamic Department Interactive Hub */}
+      <section id="departments" className="departments-hub">
+        <div className="section-header-centered">
+          <span className="journey-eyebrow"># SCIENTIFIC PILLARS</span>
+          <h2>Our Specialized Research Departments</h2>
+          <p>Discover how our dedicated teams work together to conduct vital research and deliver programs directly on the ground.</p>
+        </div>
+        <div className="departments-grid">
+          {DEPARTMENTS.map((dept) => (
+            <div key={dept.key} className="dept-card" style={{ '--dept-accent': dept.tone }}>
+              <div className="dept-card-accent-bar"></div>
+              <h3>{dept.label}</h3>
+              <p>{dept.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Double Feature Callout Cards */}
+      <section className="branch-feature-grid">
         <div className="branch-feature-card tone-green">
-          <h3>Meet our departments</h3>
-          <p> teams working together to deliver programs on the ground.</p>
-          <Link href="/branches/guidelines" className="branch-feature-btn">Explore →</Link>
+          <h3>Access Guidelines & Toolkits</h3>
+          <p>Equipping medical professionals, community health workers, and educators with peer-reviewed resources.</p>
+          <Link href="/branches/guidelines" className="branch-feature-btn">Explore Guidelines →</Link>
         </div>
         <div className="branch-feature-card tone-cream">
-          <h3>Get in touch</h3>
-          <p>Reach the branch team directly for partnerships or program questions.</p>
-          <Link href="/branches/about-us" className="branch-feature-btn">Learn more →</Link>
+          <h3>Corporate & Academic Sponsorship</h3>
+          <p>Reach out to our global coordination team for strategic funding partnerships or institutional data inquiries.</p>
+          <Link href="/branches/about-us" className="branch-feature-btn">Get In Touch →</Link>
         </div>
-      </div>
+      </section>
 
-      {/* Branch Intro */}
+      {/* Core Mandate Intro */}
       <section className="branch-intro">
-        <h2>About this branch</h2>
-        <p>
-          A couple of paragraphs about the branch's history, mandate, and role within the wider
-          organization go here — replace this with real copy describing what makes this office's
-          work distinct and how it fits into the broader strategy.
-        </p>
-      </section>
-
-      {/* Stats Bar */}
-      <section className="branch-stats">
-        {STATS.map((s) => (
-          <div key={s.label}>
-            <div className="branch-stat-num">{s.num}</div>
-            <div className="branch-stat-label">{s.label}</div>
+        <div className="intro-container">
+          <div className="intro-text">
+            <h2>About This Operational Branch</h2>
+            <p>
+              This branch serves as an essential strategic intersection, bridging institutional data with real-world implementation. Our work is distinct in its cross-disciplinary approach—combining mental health insights, maternal frameworks, and technological innovations to support sustainable development.
+            </p>
+            <p>
+              By translating complex neurobiological and public health facts into scalable field methodologies, we empower communities globally to thrive in good health and live to their happiest potential.
+            </p>
           </div>
-        ))}
+        </div>
       </section>
 
-      {/* --- BOX-CONTAINERED VALUE JOURNEY TIMELINE (CENTERED) --- */}
+      {/* Value Journey Timeline (Refined Box Layout) */}
       <section className="value-journey-centered-section">
         <div className="journey-header">
           <span className="journey-eyebrow"># ADDING VALUE WITH EDUCATION</span>
@@ -97,7 +130,7 @@ export default function BranchHomePage() {
             </div>
             <div className="folder-box-body">
               <p>
-                Adolescent Sexual and Reproductive Health and Rights (ASRHR) isn't a niche issue, 
+                Adolescent Sexual and Reproductive Health and Rights (ASRHR) isn't a niche issue; 
                 it's a foundation for healthier communities and stronger economies.
               </p>
             </div>
@@ -120,7 +153,7 @@ export default function BranchHomePage() {
         </div>
       </section>
 
-      {/* --- INSIGHTS SECTION STRUCTURALLY CONVERTED INTO Z-SHAPE MOTION FLOW --- */}
+      {/* Insights Z-Shape Flow */}
       <section className="insights-z-motion-section">
         <div className="insights-header-block">
           <h2>Key Structural Pillars & Insights</h2>
@@ -128,12 +161,12 @@ export default function BranchHomePage() {
         </div>
 
         <div className="z-motion-stack">
-          
-          {/* ITEM 1: DEBUNKING MYTHS (Left content, right space) */}
+          {/* ITEM 1: DEBUNKING MYTHS */}
           <div className="z-motion-row">
             <div className="z-motion-card border-accent-pink">
               <h3 className="z-card-title">🔴 Debunking the Myths: Fact-Based ASRHR</h3>
               <p className="z-card-intro">Misinformation is the greatest barrier to youth health. When myths dictate choices, young people lose. We must replace rumors with evidence-based facts.</p>
+              </div>
               
               <div className="z-grid-myths">
                 <div className="z-sub-box">
@@ -165,6 +198,9 @@ export default function BranchHomePage() {
             <div className="z-motion-spacer"></div>
           </div>
 
+          {/* ITEM 2: ADVANCING ASRHR */}
+          <div className="z-motion-row row-zigzag-reversed">
+
           {/* ITEM 2: ADVANCING ASRHR (Right content, left space - Z REVERSE) */}
           <div className="z-motion-row row-zigzag-reversed">
             <div className="z-motion-card border-accent-blue">
@@ -181,7 +217,7 @@ export default function BranchHomePage() {
             <div className="z-motion-spacer"></div>
           </div>
 
-          {/* ITEM 3: MENTAL HEALTH (Left content, right space) */}
+          {/* ITEM 3: MENTAL HEALTH */}
           <div className="z-motion-row">
             <div className="z-motion-card border-accent-purple">
               <h3 className="z-card-title">🧠 Youth Mental Health: Core of Adolescent Thriving</h3>
@@ -195,97 +231,33 @@ export default function BranchHomePage() {
             </div>
             <div className="z-motion-spacer"></div>
           </div>
-
-        </div>
-      </section>
-     
-    <section className="sustainability-section">
-      <div className="container-inner">
-
-        {/* SECTION 1 */}
-        <div className="content-row">
-          <div className="image-column">
-          <div className="image-wrapper relative w-full h-[300px]">
-                           <Image 
-                        src="/h1.jpg"
-                            alt="Herbs" 
-                                    fill 
-                                  className="object-cover" 
-                                       priority 
-                                   />
-                                   </div>
-          </div>
-          <div className="text-column">
-            <h1>Maternal and child Health.</h1>
-            <p>Maternal and Child Health (MCH) is a critical public health framework dedicated to optimizing the health, development, and well-being of women, neonates, and children. By addressing systemic health disparities and advancing clinical interventions during vital life stages, MCH initiatives directly reduce preventable mortality, improve birth outcomes, and establish life-long foundations for community health.</p>
-    
-          </div>
-        </div>
-
-        {/* TRANSITION */}
-        <div className="transition-banner">
-          <p>everaging Artificial Intelligence (AI) represents a transformative frontier in public health. This approach integrates predictive analytics, machine learning, and automated clinical tools into the traditional MCH framework. By converting complex biomatic data into actionable clinical insights, this intersection directly targets the reduction of maternal and infant mortality, addresses systemic health disparities, and optimizes global healthcare delivery.</p>
-        </div>
-
-        {/* SECTION 2 */}
-        <div>
-          <h2 className="heading-title">SOURCING</h2>
+          {/* SECTION 4: EDUCATION FOR ALL */}
           <div className="content-row">
             <div className="image-column">
               <div className="image-wrapper relative w-full h-[300px]">
-                           <Image 
-                        src="/used.jpg"
-                            alt="Herbs" 
-                                    fill 
-                                  className="object-cover" 
-                                       priority 
-                                   />
-                                   </div>
+                <Image 
+                  src="/h3.jpg" 
+                  alt="Education Access" 
+                  fill 
+                  className="object-cover" 
+                  priority 
+                />
+              </div>
             </div>
             <div className="text-column">
-              <h3 className="subheading-title">Mental Health</h3>
-              <p>Mental health encompasses cognitive, behavioral, and emotional well-being. It determines how individuals navigate stress, engage with their communities, and make decisions. In the landscape of modern research and grant development, the field focuses on understanding neurobiological mechanisms, optimizing early interventions, and ensuring equitable access to care</p>
+              <span className="small-section-eyebrow">Pillar Four</span>
+              <h2>Education For All</h2>
+              <p>Eliminating educational barriers ensures cognitive milestones are met and equips the next generation with the foundational tools they need to navigate school, discover their unique potential, and thrive healthily into adulthood. Our targeted tracking metrics deliver vital field insights to state boards and global non-profits.</p>
             </div>
-          </div>
         </div>
 
-        {/* SECTION 3 */}
-        <div className="sourcing-footer-block">
-          <h1 className="heading-title"> Child Education and development skills</h1>
-          <p className="supplier-code-text"> We believe that early childhood education and development skills are the cornerstones of lifelong success and community resilience. This department focuses on nurturing young minds by bridging academic fundamentals with essential life skills. By implementing evidence-based learning strategies and engaging directly with families, we cultivate environments where children can develop critical thinking, emotional resilience, and practical capabilities. Our targeted programs work to eliminate educational barriers, ensure cognitive milestones are met, and equip the next generation with the foundational tools they need to navigate school, discover their unique potential, and thrive healthily into adulthood.</p>
-         
-        </div>
-
-          <div>
-          <h2 className="heading-title">Education for all</h2>
-          <div className="content-row">
-            <div className="image-column">
-              <div className="image-wrapper relative w-full h-[300px]">
-                           <Image 
-                        src="/h3.jpg"
-                            alt="Herbs" 
-                                    fill 
-                                  className="object-cover" 
-                                       priority 
-                                   />
-                                   </div>
-            </div>
-            <div className="text-column">
-              <h3 className="subheading-title"></h3>
-              <p>Mental health encompasses cognitive, behavioral, and emotional well-being. It determines how individuals navigate stress, engage with their communities, and make decisions. In the landscape of modern research and grant development, the field focuses on understanding neurobiological mechanisms, optimizing early interventions, and ensuring equitable access to care</p>
-            </div>
-          </div>
-        </div>
-
-
-        {/* BOTTOM SECTION */}
+           {/* BOTTOM DIVIDER */}
         <div className="bottom-divider">
           <h3>Empowering communities to thrive in good health and live life to its happiest, healthiest potential.</h3>
         </div>
-
-      </div>
-    </section>
-</>
+       </div>
+      </section>
+    </div>
+    
   );
-
 }

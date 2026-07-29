@@ -1,0 +1,157 @@
+.immigrationLayoutContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #334155;
+  background-color: #ffffff;
+}
+
+/* --- Header Section Styling --- */
+.infoMainHeaderSection {
+  border-bottom: 2px dashed #e2e8f0;
+  padding-bottom: 36px;
+  margin-bottom: 48px;
+}
+
+.headerMainTitle {
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.headerBriefSummary {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #475569;
+  max-width: 900px;
+  margin: 0;
+}
+
+/* --- Zigzag Layout Structure --- */
+.zigzagFlowContainer {
+  margin-bottom: 64px;
+}
+
+.flowSectionSubTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -0.01em;
+}
+
+.zigzagListStack {
+  display: flex;
+  flex-direction: column;
+  gap: 48px; /* Spacing between each step row */
+}
+
+.zigzagStepRow {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  padding: 24px 0;
+}
+
+/* Reverses the flex order for alternating entries (Creating the Z Pattern) */
+.zigzagStepRow.reverseRowLayout {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 820px) {
+  .zigzagStepRow,
+  .zigzagStepRow.reverseRowLayout {
+    flex-direction: column-reverse; /* Stacks vertically on smaller screens */
+    gap: 24px;
+    align-items: flex-start;
+  }
+}
+
+/* --- Content Typography --- */
+.stepDetailsTextPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.numberBadgeIndicator {
+  font-size: 14px;
+  font-weight: 800;
+  color: #3b82f6;
+  background-color: #eff6ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  width: max-content;
+}
+
+.stepTitleHeading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.stepNarrativeParagraph {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #334155;
+  margin: 0;
+}
+
+/* --- Graphic / Box Panels --- */
+.stepVisualContainerCard {
+  flex: 1;
+  width: 100%;
+}
+
+.visualGraphicBackgroundBox {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.visualGraphicBackgroundBox:hover {
+  transform: scale(1.01);
+}
+
+.graphicCentralSymbol {
+  font-size: 64px;
+  user-select: none;
+}
+
+/* --- Urgency Safety Box Footers --- */
+.medicalUrgencyFooterNotice {
+  background-color: #fff1f2;
+  border-left: 4px solid #f43f5e;
+  border-radius: 0 12px 12px 0;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.alertIconAnchor {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.urgencyNoticeBodyText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #881337;
+}

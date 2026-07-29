@@ -1,0 +1,217 @@
+.value-journey-centered-section {
+  padding: 60px 24px;
+  max-width: 850px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.journey-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.journey-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6d28d9;
+  letter-spacing: 0.08em;
+}
+
+.journey-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 6px;
+  letter-spacing: -0.01em;
+}
+
+.title-accent-green {
+  color: #10b981;
+}
+
+.timeline-centered-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.centered-folder-box {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.centered-folder-box.border-teal { border-left: 4px solid #10b981; }
+.centered-folder-box.border-amber { border-left: 4px solid #f59e0b; }
+
+.folder-box-top {
+  background-color: #f9fafb;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.folder-box-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4b5563;
+}
+
+.folder-box-icon {
+  font-size: 16px;
+}
+
+.folder-box-body {
+  padding: 20px;
+}
+
+.folder-box-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* --- Alternating Motion Stack --- */
+.insights-z-motion-section {
+  padding: 80px 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+  color: #1f2937;
+}
+
+.insights-header-block {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.insights-header-block h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.insights-header-block p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6b7280;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.z-motion-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.z-motion-row {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.z-motion-row.row-zigzag-reversed {
+  flex-direction: row-reverse;
+}
+
+.z-motion-card {
+  flex: 7.5;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.z-motion-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.z-motion-card.border-accent-pink { border-top: 4px solid #e8628a; }
+.z-motion-card.border-accent-blue { border-top: 4px solid #3b82f6; }
+.z-motion-card.border-accent-purple { border-top: 4px solid #6d28d9; }
+
+.z-motion-spacer {
+  flex: 2.5;
+}
+
+@media (max-width: 950px) {
+  .z-motion-row,
+  .z-motion-row.row-zigzag-reversed {
+    flex-direction: column;
+  }
+  .z-motion-spacer {
+    display: none;
+  }
+}
+
+.z-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 10px 0;
+}
+
+.z-card-intro {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 24px;
+}
+
+.z-bullet-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.z-bullet-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.z-grid-myths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 650px) {
+  .z-grid-myths {
+    grid-template-columns: 1fr;
+  }
+}
+
+.z-sub-box {
+  background-color: #f9fafb;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #f3f4f6;
+}
+
+.z-sub-box p {
+  margin: 4px 0 10px 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+.z-sub-box p:last-child {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #111827;
+}
+
+.badge-myth-label { font-size: 10px; font-weight: 800; color: #dc2626; text-transform: uppercase; letter-spacing: 0.04em; }
+.badge-fact-label { font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 0.04em; }

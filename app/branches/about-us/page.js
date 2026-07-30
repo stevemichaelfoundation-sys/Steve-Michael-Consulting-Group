@@ -6,27 +6,53 @@ import "./about-us.css"; // Fixed: Matched name perfectly to file sidebar
 export default function AboutPage() {
   const teamMembers = [
     {
-      name: "Jean Paul",
-      position: "Executive Director",
-      description: "Leads tactical community partnerships and resource coordination across Rwanda.",
+      name: "Etienne Niyokuri",
+      position: "Founder & CEO",
+      description: ".",
       imgPlaceholder: "👤",
     },
     {
-      name: "Dr. Alice Marie",
-      position: "Maternal Health Director",
+      name: "",
+      position: "Maternal & Child Health coordinator",
       description: "Oversight of clinical outreach workflows, prenatal workshops, and mother care networks.",
       imgPlaceholder: "👤",
     },
     {
-      name: "Kevin B.",
-      position: "Adolescent Outreach Lead",
-      description: "Coordinates rights-based reproductive workshops and peer education in local schools.",
+      name: "",
+      position: "ASRHR & Peer Education coordinator",
+      description: "Coordinates community-based ASRHR programs.",
       imgPlaceholder: "👤",
     },
     {
-      name: "Sarah M.",
-      position: "Mental Health Counselor",
+      name: "",
+      position: "Mental Health Coordinator",
       description: "Develops emotional wellbeing structures and family resilience initiatives.",
+      imgPlaceholder: "👤",
+    },
+
+      {
+      name: "",
+      position: "Early Childhood Education & Development Skills coordinator",
+      description: "",
+      imgPlaceholder: "👤",
+    },
+      {
+      name: "",
+      position: "Monitoring & Evaluation Officer",
+      description: "",
+      imgPlaceholder: "👤",
+    },
+
+      {
+      name: "",
+      position: "Finance & Administration Officer",
+      description: "",
+      imgPlaceholder: "👤",
+    },
+       {
+      name: "",
+      position: "Volunteers & Interns",
+      description: "",
       imgPlaceholder: "👤",
     },
   ];

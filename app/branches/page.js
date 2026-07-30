@@ -101,9 +101,9 @@ export default function BranchHomePage() {
       <section className="branch-intro">
         <div className="intro-container">
           <div className="intro-text">
-            <h2>About This Operational Branch</h2>
+            <h2>Our Approach</h2>
             <p>
-              This branch serves as an essential strategic intersection, bridging institutional data with real-world implementation. Our work is distinct in its cross-disciplinary approach—combining mental health insights, maternal frameworks, and technological innovations to support sustainable development.
+            Our foundation serve as an essential strategic intersection, bridging institutional data with real-world implementation. Our work is distinct in its cross-disciplinary approach—combining mental health insights, maternal frameworks, and technological innovations to support sustainable development.
             </p>
             <p>
               By translating complex neurobiological and public health facts into scalable field methodologies, we empower communities globally to thrive in good health and live to their happiest potential.
@@ -167,7 +167,7 @@ export default function BranchHomePage() {
               <h3 className="z-card-title">🔴 Debunking the Myths: Fact-Based ASRHR</h3>
               <p className="z-card-intro">Misinformation is the greatest barrier to youth health. When myths dictate choices, young people lose. We must replace rumors with evidence-based facts.</p>
               </div>
-              
+
               <div className="z-grid-myths">
                 <div className="z-sub-box">
                   <span className="badge-myth-label">❌ The Common Myth</span>
@@ -236,7 +236,7 @@ export default function BranchHomePage() {
             <div className="image-column">
               <div className="image-wrapper relative w-full h-[300px]">
                 <Image 
-                  src="/h3.jpg" 
+                  src="/image copy 2.png" 
                   alt="Education Access" 
                   fill 
                   className="object-cover" 

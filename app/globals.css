@@ -1354,7 +1354,7 @@ button:focus-visible {
 
 .about-content-wrapper {
   position: relative;
-  z-index: 2;
+  z-index: 8;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -1363,11 +1363,11 @@ button:focus-visible {
 
 .about-eyebrow {
   display: block;
-  font-size: 0.85rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #dfba6b; /* Accent target yellow tint */
-  letter-spacing: 0.15em;
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.25rem;
   text-align: center;
 }
 

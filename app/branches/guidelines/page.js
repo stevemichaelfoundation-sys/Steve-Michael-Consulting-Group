@@ -35,51 +35,51 @@ export default function MedicalImmigrationPage() {
     }
   ];
 
-  return (
-    <div className="immigrationLayoutContainer">
-      {/* --- PAGE HEADER --- */}
-      <header className="infoMainHeaderSection">
-        <h1 className="headerMainTitle">What is the process for a Medical Immigration Exam?</h1>
-        <p className="headerBriefSummary">
-          At Briggs Chaney Walk-In Clinic, it is our aim to provide patient centered care that also keeps to the standards of upholding public health. We strive to put all of our visitors at ease, so that we may go over the medical records, physical examinations, and test results with thoroughness and concern, in order to present the most accurate evaluation to the USCIS and to our clients.
-        </p>
-      </header>
+  // return (
+  //   <div className="immigrationLayoutContainer">
+  //     {/* --- PAGE HEADER --- */}
+  //     <header className="infoMainHeaderSection">
+  //       <h1 className="headerMainTitle">What is the process for a Medical Immigration Exam?</h1>
+  //       <p className="headerBriefSummary">
+  //         At Briggs Chaney Walk-In Clinic, it is our aim to provide patient centered care that also keeps to the standards of upholding public health. We strive to put all of our visitors at ease, so that we may go over the medical records, physical examinations, and test results with thoroughness and concern, in order to present the most accurate evaluation to the USCIS and to our clients.
+  //       </p>
+  //     </header>
 
-      {/* --- Z-SHAPE ZIGZAG STEPS GRID --- */}
-      <main className="zigzagFlowContainer">
-        <h2 className="flowSectionSubTitle">How to get an immigration exam</h2>
+  //     {/* --- Z-SHAPE ZIGZAG STEPS GRID --- */}
+  //     <main className="zigzagFlowContainer">
+  //       <h2 className="flowSectionSubTitle">How to get an immigration exam</h2>
         
-        <div className="zigzagListStack">
-          {steps.map((item, index) => (
-            <section 
-              key={index} 
-              className={`zigzagStepRow ${item.alignRight ? "reverseRowLayout" : ""}`}
-            >
-              {/* Content Column */}
-              <div className="stepDetailsTextPane">
-                <div className="numberBadgeIndicator">{item.stepNum}</div>
-                <h3 className="stepTitleHeading">{item.title}</h3>
-                <p className="stepNarrativeParagraph">{item.description}</p>
-              </div>
+  //       <div className="zigzagListStack">
+  //         {steps.map((item, index) => (
+  //           <section 
+  //             key={index} 
+  //             className={`zigzagStepRow ${item.alignRight ? "reverseRowLayout" : ""}`}
+  //           >
+  //             {/* Content Column */}
+  //             <div className="stepDetailsTextPane">
+  //               <div className="numberBadgeIndicator">{item.stepNum}</div>
+  //               <h3 className="stepTitleHeading">{item.title}</h3>
+  //               <p className="stepNarrativeParagraph">{item.description}</p>
+  //             </div>
 
-              {/* Graphic/Visual Box Column */}
-              <div className="stepVisualContainerCard">
-                <div className="visualGraphicBackgroundBox">
-                  <span className="graphicCentralSymbol">{item.bgSymbol}</span>
-                </div>
-              </div>
-            </section>
-          ))}
-        </div>
-      </main>
+  //             {/* Graphic/Visual Box Column */}
+  //             <div className="stepVisualContainerCard">
+  //               <div className="visualGraphicBackgroundBox">
+  //                 <span className="graphicCentralSymbol">{item.bgSymbol}</span>
+  //               </div>
+  //             </div>
+  //           </section>
+  //         ))}
+  //       </div>
+  //     </main>
 
-      {/* --- EMERGENCY SAFETY NOTICE FOOTER --- */}
-      <footer className="medicalUrgencyFooterNotice">
-        <div className="alertIconAnchor">⚠️</div>
-        <p className="urgencyNoticeBodyText">
-          Although we are equipped to treat minor injuries, if you are experiencing life threatening conditions such as chest pains, difficulty breathing, stroke, head trauma, severe bleeding, or loss of consciousness, immediately contact emergency services or go directly to the ER.
-        </p>
-      </footer>
-    </div>
-  );
+  //     {/* --- EMERGENCY SAFETY NOTICE FOOTER --- */}
+  //     <footer className="medicalUrgencyFooterNotice">
+  //       <div className="alertIconAnchor">⚠️</div>
+  //       <p className="urgencyNoticeBodyText">
+  //         Although we are equipped to treat minor injuries, if you are experiencing life threatening conditions such as chest pains, difficulty breathing, stroke, head trauma, severe bleeding, or loss of consciousness, immediately contact emergency services or go directly to the ER.
+  //       </p>
+  //     </footer>
+  //   </div>
+  // );
 }

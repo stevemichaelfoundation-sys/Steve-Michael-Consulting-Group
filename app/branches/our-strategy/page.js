@@ -71,7 +71,7 @@ export default function OurStrategyPage() {
                 <strong>The Action:</strong> Create a localized, gamified mobile app or SMS platform that provides anonymous, age-appropriate information on reproductive health.
               </p>
               <blockquote className="strategy-pitch-quote">
-                <strong>Stakeholder Pitch:</strong> "We aren't just selling health products; we are building the literacy required to use them safely. By staying in school, these girls become the educated, high-earning consumer base of tomorrow."
+                <strong></strong> "We aren't just selling health products; we are building the literacy required to use them safely. By staying in school, these girls become the educated, high-earning consumer base of tomorrow."
               </blockquote>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function OurStrategyPage() {
                   <p className="strategy-paragraph-node"><strong>The Strategy:</strong> {pillar.strategy}</p>
                   <p className="strategy-paragraph-node"><strong>The Action:</strong> {pillar.action}</p>
                   <p className="strategy-paragraph-node pitch-highlight-text">
-                    <strong>Stakeholder Pitch:</strong> {pillar.pitch}
+                    <strong></strong> {pillar.pitch}
                   </p>
                 </div>
               </div>

@@ -173,10 +173,10 @@ function CounterItem({ config }) {
 function ScopeSection() {
   const statsConfig = [
     { target: 40, suffix: "+", label: "Projects delivered" },
-    { target: 12, suffix: "", label: "Countries reached" },
-    { target: 2, suffix: "M+", prefix: "$", label: "Grants secured" },
+    { target: 3, suffix: "", label: "Countries reached" },
+    { target: 30, suffix: "K+", prefix: "$", label: "Grants secured" },
   ];
-  const tags = ["Digital Health", "AI in Healthcare", "Capacity Building", "Grant Writing", "Nutrition Systems"];
+  const tags = ["Digital Health", "AI in Healthcare", "Capacity Building of Health care professionals", "Consulting", "Social Impact Enterprise/Health", "Grant & proposal Writing", "Nutrition & food Systems"];
 
   return (
     <section className="scope-section">
@@ -212,14 +212,12 @@ function Footer() {
         </div>
         <div className="footer-links-wrapper">
           <div className="footer-link-group">
-            <span className="footer-group-heading">Services</span>
-            <Link href="/services/digital-health" className="footer-nav-link">Digital Health & AI</Link>
-            <Link href="/services/capacity-building" className="footer-nav-link">Capacity Building</Link>
-            <Link href="/services/nutrition-systems" className="footer-nav-link">Nutrition Systems</Link>
-          </div>
-          <div className="footer-link-group">
             <span className="footer-group-heading">Contact</span>
             <Link href="/contact" className="footer-nav-link">Get in touch</Link>
+           <Link href="mailto:steve.michael@consultant.com" className="footer-nav-link">
+  steve.michael@consultant.com
+</Link>
+
           </div>
         </div>
       </div>
@@ -234,9 +232,11 @@ function Footer() {
 function WhatWeDoView() {
   const foldersData = [
     { title: "AI and Digital Healthcare", description: "Integrating next-generation intelligence mechanisms, machine learning diagnostics, and advanced secure database workflows directly into local healthcare clinic operations.", tone: "purple" },
-    { title: "Grant Writing", description: "Securing capital requirements through competitive research, pipeline tracking, structural proposal design, and metric verification frameworks for international NGOs.", tone: "green" },
+    { title: "Grant & Proposal Writing", description: "Securing capital requirements through competitive research, pipeline tracking, structural proposal design, and metric verification frameworks for international NGOs.", tone: "green" },
     { title: "Healthcare Professional Capacity Building", description: "Empowering frontline physicians, operational clinic leaders, and technicians with systemic on-site educational workshops and modern medical handling frameworks.", tone: "pink" },
-    { title: "Nutrition", description: "Designing regional dietary defense programs, community monitoring pipelines, and nutritional supply chains to combat regional resource scarcity.", tone: "purple" }
+    { title: "Nutrition & Food Systems", description: "Designing regional dietary defense programs, community monitoring pipelines, and nutritional supply chains to combat regional resource scarcity.", tone: "purple" },
+  { title: "Consulting", description: "Our consulting service helps health systems modernize their workforce, improve care quality, and integrate cultural competency. We deliver targeted technical assistance and training to help your organization thrive", tone: "green" },
+  { title: "Social Impact Enterprise/Health", description: "Advancing public health through innovative social enterprise models and community-driven health initiatives.", tone: "purple" }
   ];
 
     return (
@@ -285,9 +285,9 @@ function AboutUsView() {
           
           <div className="about-cards-grid">
             <div className="about-glass-card">
-              <div className="about-card-badge">OUR FOUNDATION</div>
+              <div className="about-card-badge">Who We Are</div>
               <p className="about-card-text">
-                At Steve & Michael Consulting Group is a public health–focused social enterprise 
+                Steve & Michael Consulting Group is a public health–focused social enterprise 
                 committed to advancing the practice of public health through innovation, research, 
                 and strategic capacity building. We collaborate with government agencies, NGOs, 
                 health organizations, and academic institutions to design and implement sustainable 
@@ -495,8 +495,8 @@ export default function HomePage() {
               <div className="deeper-inner">
                 <h2 className="deeper-title">Go deeper</h2>
                 <div className="folder-grid">
-                  <FolderCard title="Our strategy" description="The multi-year plan guiding where and how we invest." href="/our-strategy" tone="purple" />
-                  <FolderCard title="Branches" description="Regional and country offices, and the teams that lead them." href="/branches" tone="green" />
+                  {/* <FolderCard title="Our strategy" description="The multi-year plan guiding where and how we invest." href="/our-strategy" tone="purple" /> */}
+                  <FolderCard title="Steve Foundation" description="Regional and country offices, and the teams that lead them." href="/branches" tone="green" />
                   <FolderCard title="Focus area" description="The core issues we concentrate our work around." href="/focus-area" tone="pink" />
                   <FolderCard title="Impact stories" description="First-hand accounts from the people we work with." href="/impact-stories" tone="purple" />
                 </div>

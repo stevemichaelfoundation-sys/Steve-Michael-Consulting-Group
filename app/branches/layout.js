@@ -9,7 +9,8 @@ const NAV_ITEMS = [
   { label: "Guidelines", href: "/branches/guidelines" },
   { label: "Where we work", href: "/branches/where-we-work" },
   { label: "Policies", href: "/branches/policies" },
-  { label: "Contact us", href: "/branches/contactus"}
+  { label: "Contact us", href: "/branches/contactus"},
+   { label: "Our Strategy", href: "/branches/our-strategy"}
 ];
 
 export default function BranchLayout({ children }) {
@@ -21,15 +22,15 @@ export default function BranchLayout({ children }) {
         <div className="branch-brand-row">
           <div className="branch-brand">
             <img
-              src="/branch-logo.png"
+              src="/branch.png"
               alt="Branch logo"
               style={{ width: "130px", height: "110px", borderRadius: "8px", objectFit: "cover", background: "#fff" }}
             />
             <div>
               <h1 style={{ color: "#FAF7F5", fontSize: "18px", fontWeight: 700, margin: 0 }}>
-                Rwanda
+                Steve Foundation
               </h1>
-              <p style={{ color: "#F190AC", fontSize: "12px", margin: "2px 0 0" }}>Gasabo, Kigali</p>
+              <p style={{ color: "#F190AC", fontSize: "12px", margin: "2px 0 0" }}></p>
             </div>
           </div>
           <button className="branch-subscribe-btn">Contact us</button>
@@ -55,7 +56,6 @@ export default function BranchLayout({ children }) {
           <div className="branch-footer-col">
             <h4>Gasabo Office</h4>
             <p>Kigali, Rwanda</p>
-            <p>Coordinating programs across Rwanda, USA, Canada.</p>
           </div>
           <div className="branch-footer-col">
             <h4>Quick links</h4>
@@ -72,8 +72,8 @@ export default function BranchLayout({ children }) {
           </div>
           <div className="branch-footer-col">
             <h4>Contact</h4>
-            <p>info@rwanda.example.org</p>
-            <p>+250 788 000 000</p>
+            <p>steve.michaelfoundation@gmail.com</p>
+            <p>+250 782270658</p>
           </div>
         </div>
         <div className="branch-footer-bottom">

@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Navigation mapping infrastructure array
 const NAV_ITEMS = [
+  { label: "Home", id: "home" },
   { label: "What we do", id: "what-we-do" },
   { label: "Our programs", id: "our-programs" },
   { label: "About us", id: "about-us" },
@@ -20,7 +22,7 @@ function Header({ activeTab, setActiveTab }) {
     <header className="header">
       <div className="header-inner">
         <button 
-          onClick={() => setActiveTab("home")} 
+
           className="logo-btn" 
           aria-label="Go to Home"
         >
@@ -66,19 +68,73 @@ function Header({ activeTab, setActiveTab }) {
   );
 }
 
-function PlaceholderImage({ label, tone = "purple" }) {
+function PlaceholderImage({ label, tone = "white" }) {
+  const [showSecondImage, setShowSecondImage] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowSecondImage((prev) => !prev);
+    }, 3000); 
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div role="img" aria-label={label} className={`placeholder-image placeholder-${tone}`}>
+    <div className={`card-image-container placeholder-${tone} floating-anim`} style={{ position: 'relative' }}>
+      {/* First Image */}
+      <img
+        src="/anim.png"
+        alt={label}
+        className="card-image-element"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: showSecondImage ? 0 : 1,
+          transition: 'opacity 0.5s ease-in-out'
+        }}
+      />
+{/* 
+      <img
+        src="/anim1.png"
+        alt={label}
+        className="card-image-element"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: showSecondImage ? 0 : 1,
+          transition: 'opacity 0.5s ease-in-out'
+        }}
+      /> */}
+
+      {/* Second Image */}
+      <img
+        src="/anim2.png"
+        alt={label}
+        className="card-image-element"
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          opacity: showSecondImage ? 1 : 0,
+          transition: 'opacity 0.5s ease-in-out'
+        }}
+      />
+
       <span className="placeholder-label">
         {label}
         <br />
-        <span className="placeholder-sub">Replace with your photo</span>
+        <span className="placeholder-sub"> </span>
       </span>
     </div>
   );
 }
 
-function ImageTextRow({ eyebrow, title, body, imageLabel, tone = "purple", reverse = false }) {
+function ImageTextRow({ eyebrow, title, body, imageLabel, tone = "white", reverse = false }) {
   return (
     <div className={`image-text-row${reverse ? " reverse" : ""}`}>
       <PlaceholderImage label={imageLabel} tone={tone} />
@@ -91,18 +147,19 @@ function ImageTextRow({ eyebrow, title, body, imageLabel, tone = "purple", rever
   );
 }
 
-function FolderCard({ title, description, href, tone }) {
+function FolderCard({ title, description, href, tone = "purple" }) {
   return (
-    <Link href={href} className="folder-card">
+    <Link href={href || "#"} className="folder-card">
       <span className={`folder-tab folder-tab-${tone}`} aria-hidden="true" />
-      <div className={`folder-body folder-bg-${tone}`}>
+      <div className="folder-body">
         <h3 className="folder-title">{title}</h3>
         <p className="folder-desc">{description}</p>
-        <span className="folder-link">Open folder →</span>
+        <span className="folder-link">more info →</span>
       </div>
     </Link>
   );
 }
+
 
 function HeroSection({ setActiveTab }) {
   return (
@@ -131,6 +188,7 @@ function HeroSection({ setActiveTab }) {
             onClick={() => setActiveTab("our-research")} 
             className="btn-secondary"
             style={{ cursor: "pointer", textAlign: "center" }}
+            colour="navy blue"
           >
             See our impact
           </button>

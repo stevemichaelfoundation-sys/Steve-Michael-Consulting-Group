@@ -1354,7 +1354,7 @@ button:focus-visible {
 
 .about-content-wrapper {
   position: relative;
-  z-index: 8;
+  z-index: 2;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -1363,11 +1363,11 @@ button:focus-visible {
 
 .about-eyebrow {
   display: block;
-  font-size: 1.25rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #dfba6b; /* Accent target yellow tint */
-  letter-spacing: 0.12em;
-  margin-bottom: 1.25rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 
@@ -1915,7 +1915,7 @@ button:focus-visible {
   display: flex;
   gap: 2.5rem;
   align-items: center;
-  background-color: #f8fafc;
+  background-color: #67a2dd;
   border: 1px solid #e2e8f0;
   padding: 2rem;
   border-radius: 16px;
@@ -1964,17 +1964,37 @@ button:focus-visible {
     padding: 2rem;
   }
   .featured-graphic-frame {
-    width: 100%;
-    flex: 0 0 240px;
-    height: 240px;
+    width: 200px;
+    flex: 0 0 250px;
+    height: 250px;
   }
   .list-thumbnail-box {
-    width: 100%;
-    flex: 0 0 120px;
-    height: 120px;
+    width: 200px;
+    flex: 0 0 250px;
+    height: 250px;
   }
   .strategy-main-heading {
     font-size: 2.5rem;
   }
+}
+
+.deeper-section, .go-deeper-container, section:has(.folder-grid) {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;           
+}
+
+.deeper-section h2, .go-deeper-container h2 {
+  color: #045e03 !important;            
+  text-shadow: 0 2px 4px rgba(4, 51, 2, 0.6); 
+  margin-bottom: 24px;
+}
+
+.folder-body {
+  background-color: rgba(15, 15, 15, 0.6) !important; 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(2, 5, 47, 0.1);
+  border-radius: 0 0 8px 8px;
 }
 

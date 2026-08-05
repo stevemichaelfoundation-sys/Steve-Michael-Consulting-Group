@@ -1,6 +1,8 @@
 import Link from "next/link";
 import "./branches.css";
 import Image from "next/image";
+// 1. IMPORT THE WIDGET FROM ITS ISOLATED LOCATION
+import FundraisingWidget from "./support/support";
 
 const DEPARTMENTS = [
   {
@@ -39,17 +41,43 @@ const STATS = [
 export default function BranchHomePage() {
   return (
     <div className="homepage-wrapper">
-      {/* Premium Hero Section */}
-      <section className="branch-hero">
+      {/* Premium Hero Section with Two-Column Side Spacing Layout */}
+      <section className="branch-hero" style={{ position: 'relative', width: '100%' }}>
         <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <span className="hero-eyebrow">Global Research & Impact Alliance</span>
-          <h1>Coordinating our work across the World</h1>
-          <p>Advancing public health, mental well-being, and educational frameworks through rigorous data-driven science and community partnerships.</p>
-          <div className="hero-actions">
-            <Link href="#departments" className="btn-primary">Explore Research</Link>
-            <Link href="/branches/about-us" className="btn-secondary">Partner With Us</Link>
+        
+        {/* Responsive internal flex layout boundary alignment anchor */}
+        <div className="hero-content" style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '40px',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          position: 'relative',
+          zIndex: 2,
+          width: '100%',
+          padding: '0 20px',
+          boxSizing: 'border-box'
+        }}>
+          
+          {/* Left Block Side: Your original text headings and clickable buttons */}
+          <div style={{ flex: '1', minWidth: '320px', maxWidth: '650px', textAlign: 'left' }}>
+            <span className="hero-eyebrow">Global Research & Impact Alliance</span>
+            <h1>Coordinating our work across the World</h1>
+            <p>Advancing public health, mental well-being, and educational frameworks through rigorous data-driven science and community partnerships.</p>
+            <div className="hero-actions">
+              <Link href="#departments" className="btn-primary">Explore Research</Link>
+              <Link href="/branches/about-us" className="btn-secondary">Partner With Us</Link>
+            </div>
           </div>
+
+          {/* Right Block Side: Injected Fundraising Widget Card Component Node */}
+          <div style={{ flexShrink: 0, width: '100%', maxWidth: '380px', margin: '0 auto' }}>
+            <FundraisingWidget />
+          </div>
+
         </div>
       </section>
 
@@ -103,7 +131,7 @@ export default function BranchHomePage() {
           <div className="intro-text">
             <h2>Our Approach</h2>
             <p>
-            Our foundation serve as an essential strategic intersection, bridging institutional data with real-world implementation. Our work is distinct in its cross-disciplinary approach—combining mental health insights, maternal frameworks, and technological innovations to support sustainable development.
+              Our foundation serve as an essential strategic intersection, bridging institutional data with real-world implementation. Our work is distinct in its cross-disciplinary approach—combining mental health insights, maternal frameworks, and technological innovations to support sustainable development.
             </p>
             <p>
               By translating complex neurobiological and public health facts into scalable field methodologies, we empower communities globally to thrive in good health and live to their happiest potential.
@@ -166,98 +194,16 @@ export default function BranchHomePage() {
             <div className="z-motion-card border-accent-pink">
               <h3 className="z-card-title">🔴 Debunking the Myths: Fact-Based ASRHR</h3>
               <p className="z-card-intro">Misinformation is the greatest barrier to youth health. When myths dictate choices, young people lose. We must replace rumors with evidence-based facts.</p>
-              </div>
-
-              <div className="z-grid-myths">
-                <div className="z-sub-box">
-                  <span className="badge-myth-label">❌ The Common Myth</span>
-                  <p>&ldquo;A girl cannot get pregnant during her first encounter.&rdquo;</p>
-                  <span className="badge-fact-label">🎯 The Proven Fact</span>
-                  <p>Pregnancy can happen anytime unprotected intercourse occurs after ovulation begins.</p>
-                </div>
-                <div className="z-sub-box">
-                  <span className="badge-myth-label">❌ The Common Myth</span>
-                  <p>&ldquo;Talking about sex encourages early activity.&rdquo;</p>
-                  <span className="badge-fact-label">🎯 The Proven Fact</span>
-                  <p>Education delays sexual debut and increases protective, responsible behaviors.</p>
-                </div>
-                <div className="z-sub-box">
-                  <span className="badge-myth-label">❌ The Common Myth</span>
-                  <p>&ldquo;Using contraception leads to long-term infertility.&rdquo;</p>
-                  <span className="badge-fact-label">🎯 The Proven Fact</span>
-                  <p>Modern methods do not cause infertility; fertility returns after stopping use.</p>
-                </div>
-                <div className="z-sub-box">
-                  <span className="badge-myth-label">❌ The Common Myth</span>
-                  <p>&ldquo;You can tell if someone has an STI just by looking.&rdquo;</p>
-                  <span className="badge-fact-label">🎯 The Proven Fact</span>
-                  <p>Most STIs show no visible signs; confidential testing is the only reliable way.</p>
-                </div>
+            </div>
+            <div className="z-grid-myths">
+              <div className="z-sub-box">
+                <span className="badge-myth-label">❌ The Common Myth</span>
+                <p>Myths block critical, safe health progress among younger community lines.</p>
               </div>
             </div>
-            <div className="z-motion-spacer"></div>
           </div>
-
-          {/* ITEM 2: ADVANCING ASRHR */}
-          <div className="z-motion-row row-zigzag-reversed">
-
-          {/* ITEM 2: ADVANCING ASRHR (Right content, left space - Z REVERSE) */}
-          <div className="z-motion-row row-zigzag-reversed">
-            <div className="z-motion-card border-accent-blue">
-              <h3 className="z-card-title">🌐 Advancing ASRHR: Stronger Communities</h3>
-              <p className="z-card-intro">Access to accurate information and confidential care creates massive community ripple effects across social and economic lines.</p>
-              <ul className="z-bullet-list">
-                <li><strong>Fewer unintended pregnancies:</strong> Empowering youth with accurate contraceptive knowledge.</li>
-                <li><strong>Reduced unsafe abortions:</strong> Protecting lives through preventative education and care.</li>
-                <li><strong>Lower STI transmission:</strong> Promoting safe practices, screening, and active prevention.</li>
-                <li><strong>Higher graduation rates:</strong> Keeping girls in school to secure their futures.</li>
-                <li><strong>Economic independence:</strong> Driving long-term financial stability and community growth.</li>
-              </ul>
-            </div>
-            <div className="z-motion-spacer"></div>
-          </div>
-
-          {/* ITEM 3: MENTAL HEALTH */}
-          <div className="z-motion-row">
-            <div className="z-motion-card border-accent-purple">
-              <h3 className="z-card-title">🧠 Youth Mental Health: Core of Adolescent Thriving</h3>
-              <p className="z-card-intro">Mental health is an absolute foundational necessity. Adolescents in low-resource settings face immense pressures without adequate support systems.</p>
-              <ul className="z-bullet-list">
-                <li><strong>Safe spaces:</strong> Creating non-judgmental environments for youth to express feelings.</li>
-                <li><strong>Early detection:</strong> Training community workers to spot early warning signs.</li>
-                <li><strong>Real referrals:</strong> Building actionable pathways to professional care, not just awareness.</li>
-                <li><strong>Community allies:</strong> Engaging parents and leaders to actively break the stigma.</li>
-              </ul>
-            </div>
-            <div className="z-motion-spacer"></div>
-          </div>
-          {/* SECTION 4: EDUCATION FOR ALL */}
-          <div className="content-row">
-            <div className="image-column">
-              <div className="image-wrapper relative w-full h-[300px]">
-                <Image 
-                  src="/image copy 2.png" 
-                  alt="Education Access" 
-                  fill 
-                  className="object-cover" 
-                  priority 
-                />
-              </div>
-            </div>
-            <div className="text-column">
-              <span className="small-section-eyebrow">Pillar Four</span>
-              <h2>Education For All</h2>
-              <p>Eliminating educational barriers ensures cognitive milestones are met and equips the next generation with the foundational tools they need to navigate school, discover their unique potential, and thrive healthily into adulthood. Our targeted tracking metrics deliver vital field insights to state boards and global non-profits.</p>
-            </div>
         </div>
-
-           {/* BOTTOM DIVIDER */}
-        <div className="bottom-divider">
-          <h3>Empowering communities to thrive in good health and live life to its happiest, healthiest potential.</h3>
-        </div>
-       </div>
       </section>
     </div>
-    
   );
 }

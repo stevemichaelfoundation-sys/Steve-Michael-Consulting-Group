@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
           .header-container,
           nav.navbar,
           [class*="header"] {
-            background-color: #0d022f !important;
+            background-color: #f1f1f4 !important;
             backdrop-filter: blur(8px);
             transition: background-color 0.3s ease;
           }
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
           .footer-container,
           nav.footer,
           [class*="footer"] {
-            background-color: #0d022f !important;
+            background-color: #0b0129 !important;
             backdrop-filter: blur(8px);
             transition: background-color 0.3s ease;
           }
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
           .header-container nav,
           .navbar,
           [class*="header"] nav {
-            color: #FFFFFF !important;
+            color: #0a480e !important;
           }
 
           header nav *, 
@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
           [class*="header"] nav *.active,
           header nav *[class*="active"],
           .navbar *[class*="active"] {
-            color: #FFFFFF !important; 
+            color: #04ce3a !important; 
             font-weight: 500 !important;
             text-decoration: none !important;
           }
@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
           .header-container nav *:hover,
           .navbar *:hover,
           [class*="header"] nav *:hover {
-            color: #00E63D !important;
+            color: #033c13 !important;
           }
         `}</style>
       </head>

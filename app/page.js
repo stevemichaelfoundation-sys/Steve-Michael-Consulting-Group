@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import FundraisingWidget from './branches/support/support';
+
 
 const NAV_ITEMS = [
   { label: "Home", id: "home" },
@@ -10,7 +12,7 @@ const NAV_ITEMS = [
   { label: "Our purpose", id: "our-purpose" },
   { label: "About us", id: "about-us" },
   { label: "Our research", id: "our-research" },
-  { label: "Events", id: "events" },
+  { label: "Events Section", id: "events-section" },
 ];
 
 function Header({ activeTab, setActiveTab }) {
@@ -19,25 +21,19 @@ function Header({ activeTab, setActiveTab }) {
   return (
     <header className="header">
       <div className="header-inner">
-        <button 
-
-          className="logo-btn" 
-          aria-label="Go to Home"
-        >
+      
           <img
               src="/logo-img.jpg"
               alt="Steve & Michael consutlutation logo"
-              style={{ width: "130px", height: "110px", borderRadius: "8px", objectFit: "cover", background: "#fff" }}
+              style={{ width: "160px", height: "140px", borderRadius: "10px", objectFit: "cover" }}
             />
-        </button>
-
+      
         <nav className="nav">
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
               className={`nav-item${activeTab === item.id ? " active" : ""}`}
-              style={{ background: "none", border: "none", cursor: "pointer" }}
             >
               {item.label}
             </button>
@@ -52,7 +48,7 @@ function Header({ activeTab, setActiveTab }) {
             className="header-linkedin-link"
             aria-label="Visit our LinkedIn Profile"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="background-color: #0a480e">
               <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
             </svg>
           </a>
@@ -76,41 +72,50 @@ function PlaceholderImage({ label, tone = "white" }) {
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div className={`card-image-container placeholder-${tone} floating-anim`} style={{ position: 'relative' }}>
-      {/* First Image */}
-      <img
-        src="/anim.png"
-        alt={label}
-        className="card-image-element"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          opacity: showSecondImage ? 0 : 1,
-          transition: 'opacity 0.5s ease-in-out'
-        }}
-      />
-      <img
-        src="/anim2.png"
-        alt={label}
-        className="card-image-element"
-        style={{
-          position: 'relative',
-          width: '100%',
-          height: '100%',
-          opacity: showSecondImage ? 1 : 0,
-          transition: 'opacity 0.5s ease-in-out'
-        }}
-      />
+}
 
-      <span className="placeholder-label">
-        {label}
-        <br />
-        <span className="placeholder-sub"> </span>
+function ContentRow({ eyebrow, title, body, eyebrowColor = "#004d40" }) {
+  return (
+    <div style={{
+      padding: '40px 0',
+      borderBottom: '1px solid #f2f2f2', 
+      maxWidth: '680px'
+    }}>
+      <span style={{
+        display: 'block',
+        fontSize: '11px',
+        fontWeight: '700',
+        textTransform: 'uppercase',
+        letterSpacing: '1.5px',
+        color: eyebrowColor,
+        marginBottom: '12px',
+        fontFamily: 'sans-serif'
+      }}>
+        {eyebrow}
       </span>
+
+      <h3 style={{
+        fontSize: '25px',
+        fontWeight: '700',
+        color: '#052350',
+        margin: '0 0 12px 0',
+        lineHeight: '1.35',
+        fontFamily: 'sans-serif',
+        letterSpacing: '-0.3px'
+      }}>
+        {title}
+      </h3>
+
+      <p style={{
+        fontSize: '20px',
+        color: '#141313',
+        margin: 0,
+        lineHeight: '1.6',
+        fontFamily: 'sans-serif',
+        fontWeight: '400'
+      }}>
+        {body}
+      </p>
     </div>
   );
 }
@@ -643,22 +648,132 @@ function OurResearchView() {
   );
 }
 
-function BranchesView() {
-
+function EventsSection() {
+  const events = [
+    { id: 1, type: "Workshop", title: "Capacity Building Workshop", icon: "📚" },
+    { id: 2, type: "Symposium", title: "Global Health Symposium", icon: "🌐" },
+    { id: 3, type: "Summit", title: "Local Clinic Support Summit", icon: "🏥" }
+  ];
 
   return (
-    
-    <div className="tab-view-container" style={{ animation: "fadeIn 0.4s ease" }}>
-      <button 
-            onClick={() => setActiveTab("branches")} 
-            className="btn-primary"
-            style={{ border: "none", cursor: "pointer", textAlign: "center" }}
-          >
-            Our programs →
-          </button>
-    </div>
+    <section style={{ padding: '60px 20px', backgroundColor: '#fafafa', fontFamily: 'sans-serif' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '30px',
+          marginTop: '20px'
+        }}>
+          
+          {events.map((event) => (
+            <div 
+              key={event.id}
+              style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '1px solid #eaeaea',
+                cursor: 'pointer'
+              }}
+  
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-8px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(219, 46, 46, 0.12)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+              }}
+            >
+              <div style={{
+                height: '160px',
+                backgroundColor: '#393b39',
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#ffffff'
+              }}>
+         
+                <span style={{
+                  position: 'absolute',
+                  top: '15px',
+                  left: '15px',
+                  backgroundColor: '#4a90e2',
+                  color: 'white',
+                  padding: '4px 12px',
+                  borderRadius: '20px',
+                  fontSize: '11px',
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px'
+                }}>
+                  {event.type}
+                </span>
+                
+                <div style={{ opacity: 0.25, fontSize: '55px' }}>{event.icon}</div>
+              </div>
+
+              <div style={{ padding: '25px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+            
+                <div style={{ display: 'flex', gap: '15px', fontSize: '13px', color: '#666666', marginBottom: '12px' }}>
+                  <span>📅 Aug 24, 2026</span>
+                  <span>⏰ 2:00 PM EAT</span>
+                </div>
+
+
+                <h3 style={{ margin: '0 0 15px 0', color: '#0c1624', fontSize: '19px', fontWeight: '700', lineHeight: '1.4' }}>
+                  {event.title}
+                </h3>
+
+                <div style={{
+                  backgroundColor: '#fff9db',
+                  borderLeft: '4px solid #fab005',
+                  padding: '12px',
+                  borderRadius: '4px',
+                  fontSize: '14px',
+                  color: '#444444',
+                  fontWeight: '500',
+                  marginBottom: '25px',
+                  lineHeight: '1.5'
+                }}>
+                  I will put words in here according to the event
+                </div>
+
+                <button style={{
+                  marginTop: 'auto',
+                  width: '100%',
+                  padding: '12px',
+                  backgroundColor: '#03224e',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '6px',
+                  fontWeight: '6px',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.2s ease'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#073973'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0c1624'}
+                >
+                  Register / Learn More →
+                </button>
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </section>
   );
 }
+
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("home");
@@ -667,35 +782,98 @@ export default function HomePage() {
     <>
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <main>
-        {/* State Conditional View Routing Matrix */}
+      <main style={{ backgroundColor: '#ffffff' }}>
         {activeTab === "what-we-do" && <WhatWeDoView />}
         {activeTab === "about-us" && <AboutUsView />}
         {activeTab === "our-research" && <OurResearchView />}
         {activeTab === "our-purpose" && <OurPurpose />}
-
-        {activeTab === "events" && (
-          <div className="tab-view-container">
-            <h2>Upcoming Events</h2>
-            <p>Join our scheduled virtual capacity building workshops, global symposia, and local clinic support summits.</p>
-          </div>
-        )}
+    
+        {activeTab === "events-section" && <EventsSection />}
 
         {activeTab === "home" && (
           <>
-            <HeroSection setActiveTab={setActiveTab} />
-            
-            <section className="rows-section">
-              <ImageTextRow eyebrow="What we do" title="Programs built with for communities" body="We design and deliver programs in partnership with local leaders." imageLabel="/h1.jpg" tone="purple" />
-              <ImageTextRow eyebrow="Our program" title="We work with different people on different aspects" body="Our teams are embedded on the ground across multiple continents." href="/impact-stories" tone="green" reverse />
-              <ImageTextRow eyebrow="Our research" title="Evidence that shapes every decision" body="Our research division studies the long-term effects of our programs." imageLabel="/h3.jpg" tone="pink" />
+          
+            <div style={{ 
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)), url('/home.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              padding: '300px 200px',
+              borderBottom: '1px solid #eee'
+            }}>
+              <div style={{ 
+                maxWidth: '1100px', 
+                margin: '0 auto', 
+                width: '100%',
+                color: '#ffffff',
+                textAlign: 'left',
+                fontFamily: 'sans-serif'
+              }}>
+                <span style={{ fontSize: '11px', letterSpacing: '2px', color: '#cbd5e1', fontWeight: 'bold', textTransform: 'uppercase' }}>
+                  PUBLIC HEALTH • SOCIAL ENTERPRISE • EST. 2023
+                </span>
+                <h1 style={{ fontSize: '46px', margin: '14px 0 24px 0', color: '#ffffff', lineHeight: '1.25', fontWeight: '700', maxWidth: '800px' }}>
+                  Building resilient health systems for the future
+                </h1>
+                <p style={{ color: '#f1f5f9', lineHeight: '1.7', fontSize: '17px', margin: '0 0 40px 0', fontWeight: '400', maxWidth: '760px' }}>
+                  We collaborate with governments, NGOs, and academic institutions to design sustainable public health solutions — powered by research, technology, and measurable impact.
+                </p>
+                
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <button 
+                    onClick={() => setActiveTab("what-we-do")}
+                    style={{ backgroundColor: '#004d40', color: '#ffffff', border: 'none', padding: '14px 28px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', borderRadius: '4px', transition: 'all 0.2s' }}
+                  >
+                    Explore our services
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab("fundraising")}
+                    style={{ backgroundColor: '#ffffff', color: '#004d40', border: 'none', padding: '14px 28px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', borderRadius: '4px', transition: 'all 0.2s' }}
+                  >
+                    See our impact →
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <section className="rows-section" style={{ backgroundColor: '#ffffff', padding: '20px 40px' }}>
+              <div style={{ maxWidth: '1100px', margin: '0 auto', width: '100%' }}>
+                
+                <ContentRow 
+                  eyebrow="Nutrition & Food Security"
+                  title="Transforming nutrition research into actionable regional programs"
+                  body="Beyond technological innovation, we actively transform complex nutrition research into actionable regional programs to support community food security. Our team designs sustainable frameworks that systematically improve local nutrition and build resilient distribution systems. We collaborate closely with local stakeholders to shape policy, enhance daily practice, and deliver targeted initiatives that optimize health outcomes across diverse populations."
+                  eyebrowColor="#111111"
+                />
+
+                <ContentRow 
+                  eyebrow="Human Capital"
+                  title="Investing heavily in professional training and upskilling"
+                  body="True systemic impact also requires investing heavily in human capital. We train and upskill public health professionals with modern methodologies and specialized toolkits, ensuring that teams possess the critical competencies required to navigate complex challenges. Strengthening these institutional frameworks improves overall operational scalability, fostering immediate transformation by equipping local personnel with innovative administrative and biological resources."
+                  eyebrowColor="#004d40"
+                />
+
+                <ContentRow 
+                  eyebrow="Policy & Sustainability"
+                  title="Conducting rigorous scientific research to inform national health policies"
+                  body="To ensure long-term sustainability, we conduct rigorous scientific research to inform national health policies through close partnerships with governments and non-governmental organizations. These evidence-based strategies translate deep academic insights into effective legislative frameworks. Working alongside authorities allows us to build resilient infrastructure and design equity-driven solutions tailored to the specific needs of disparate populations."
+                  eyebrowColor="#b71c1c"
+                />
+
+                <ContentRow 
+                  eyebrow="Our Impact"
+                  title="Combining academic investigation with localized implementation"
+                  body="By bringing together a multidisciplinary team of experts, we combine rigorous academic investigation with localized, hands-on implementation to achieve maximum measurable impact. Partners gain exclusive access to innovative methodologies, predictive insights, and sustainable strategies designed to generate lasting health improvements worldwide. Together, we can transform public health frameworks and build a healthier, more resilient future."
+                  eyebrowColor="#e65100"
+                />
+
+              </div>
             </section>
             
             <section className="deeper-section">
               <div className="deeper-inner">
                 <h2 className="deeper-title">Go deeper</h2>
                 <div className="folder-grid">
-                  {/* <FolderCard title="Our strategy" description="The multi-year plan guiding where and how we invest." href="/our-strategy" tone="purple" /> */}
                   <FolderCard title="Steve Foundation" description="Regional and country offices, and the teams that lead them." href="/branches" tone="green" />
                   <FolderCard title="Focus area" description="The core issues we concentrate our work around." href="/focus-area" tone="pink" />
                   <FolderCard title="Impact stories" description="First-hand accounts from the people we work with." href="/impact-stories" tone="purple" />
@@ -707,6 +885,7 @@ export default function HomePage() {
           </>
         )}
       </main>
-<Footer /> 
-</> );
+      <Footer /> 
+    </>
+  );
 }

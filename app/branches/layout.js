@@ -10,7 +10,8 @@ const NAV_ITEMS = [
   { label: "Where we work", href: "/branches/where-we-work" },
   { label: "Policies", href: "/branches/policies" },
   { label: "Contact us", href: "/branches/contactus"},
-   { label: "Our Strategy", href: "/branches/our-strategy"}
+   { label: "Our Strategy", href: "/branches/our-strategy"},
+   { label: "Support", href: "/branches/support"},
 ];
 
 export default function BranchLayout({ children }) {

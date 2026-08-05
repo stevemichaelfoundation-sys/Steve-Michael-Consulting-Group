@@ -289,7 +289,7 @@ button:focus-visible {
   }
 }
 
-/* ---- Placeholder image ---- */
+
 .placeholder-image {
   display: flex;
   align-items: center;
@@ -319,7 +319,6 @@ button:focus-visible {
   opacity: 0.7;
 }
 
-/* ---- Folder shelf section (homepage "Go deeper") ---- */
 .deeper-section {
   background-color: rgba(59, 31, 92, 0.05);
   padding: 48px 0;
@@ -364,7 +363,6 @@ button:focus-visible {
   .folder-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
 }
 
-/* ---- Folder card ---- */
 .folder-card {
   position: relative;
   display: block;
@@ -421,7 +419,6 @@ button:focus-visible {
   color: var(--cream);
 }
 
-/* ---- Generic content card (used in subpages) ---- */
 .card {
   border-radius: 16px;
   border: 1px solid;
@@ -460,7 +457,7 @@ button:focus-visible {
   color: rgba(36, 22, 51, 0.75);
 }
 
-/* ---- Sub-pages (our-strategy, focus-area, impact-stories) ---- */
+
 .subpage {
   max-width: 1152px;
   margin: 0 auto;
@@ -522,7 +519,6 @@ button:focus-visible {
   .card-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
 }
 
-/* ---- Branch: shared header/nav/footer ---- */
 .branch-header {
   background-color: #0a042c;;
   padding: 1.75rem 2rem;
@@ -849,9 +845,7 @@ button:focus-visible {
     flex-direction: column;
   }
 }
-/* ==========================================================================
-   SCOPE OF WORK SECTION STYLES
-   ========================================================================== */
+
 
 .scope-section {
   width: 100%;
@@ -1129,9 +1123,6 @@ button:focus-visible {
     width: 100%;
   }
 }
-/* ==========================================================================
-   ADVANCED EXPANDED FOOTER SYSTEM
-   ========================================================================== */
 
 .footer {
   background-color: #294964; /* Match your image green */
@@ -1312,9 +1303,6 @@ button:focus-visible {
   }
 }
 
-/* ==========================================================================
-   ABOUT US INTERACTIVE GLASS CARD STYLES
-   ========================================================================== */
 
 .about-container {
   width: 100%;
@@ -1957,7 +1945,7 @@ button:focus-visible {
 .tone-purple { background-color: #2b4a65; }
 .tone-green { background-color: #3f9b6c; }
 .tone-pink { background-color: #e8628a; }
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .featured-pillar-card-row,
   .all-articles-list-row-card {
     flex-direction: column;
@@ -1977,7 +1965,7 @@ button:focus-visible {
   .strategy-main-heading {
     font-size: 2.5rem;
   }
-}
+} */
 
 .deeper-section, .go-deeper-container, section:has(.folder-grid) {
   background-color: transparent !important;
@@ -1997,5 +1985,16 @@ button:focus-visible {
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(2, 5, 47, 0.1);
   border-radius: 0 0 8px 8px;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+  }
 }
 

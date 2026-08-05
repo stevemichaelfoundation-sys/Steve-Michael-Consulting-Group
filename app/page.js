@@ -4,17 +4,15 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Navigation mapping infrastructure array
 const NAV_ITEMS = [
   { label: "Home", id: "home" },
   { label: "What we do", id: "what-we-do" },
-  { label: "Our programs", id: "our-programs" },
+  { label: "Our purpose", id: "our-purpose" },
   { label: "About us", id: "about-us" },
   { label: "Our research", id: "our-research" },
   { label: "Events", id: "events" },
 ];
 
-/* --- GLOBAL BRANDING HEADER LAYER CONTEXT --- */
 function Header({ activeTab, setActiveTab }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -95,23 +93,6 @@ function PlaceholderImage({ label, tone = "white" }) {
           transition: 'opacity 0.5s ease-in-out'
         }}
       />
-{/* 
-      <img
-        src="/anim1.png"
-        alt={label}
-        className="card-image-element"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          opacity: showSecondImage ? 0 : 1,
-          transition: 'opacity 0.5s ease-in-out'
-        }}
-      /> */}
-
-      {/* Second Image */}
       <img
         src="/anim2.png"
         alt={label}
@@ -286,7 +267,6 @@ function Footer() {
   );
 }
 
-/* --- VIEW TARGET: WHAT WE DO WORKSPACE --- */
 function WhatWeDoView() {
   const foldersData = [
     { title: "AI and Digital Healthcare", description: "Integrating next-generation intelligence mechanisms, machine learning diagnostics, and advanced secure database workflows directly into local healthcare clinic operations.", tone: "purple" },
@@ -298,7 +278,7 @@ function WhatWeDoView() {
   ];
 
     return (
-    <div style={{ backgroundColor: "#ffffff", animation: "fadeIn 0.4s ease" }}>
+    <div style={{ backgroundColor: "#dad9d9", animation: "fadeIn 0.4s ease" }}>
       <div className="home-marquee-container">
         <div className="home-marquee-track">
           <span>WE PROVIDE CONSULTING ON PUBLIC HEALTH • WE PROVIDE CONSULTING ON PUBLIC HEALTH • </span>
@@ -318,7 +298,7 @@ function WhatWeDoView() {
                 <FolderCard title={folder.title} description={folder.description} href="#" tone={folder.tone} />
               </div>
               <div style={{ flex: 1 }}>
-                <h3 style={{ fontSize: "1.75rem", color: "#2b4a65", marginBottom: "1rem", fontWeight: "700" }}>{folder.title}</h3>
+                <h3 style={{ fontSize: "1.75rem", color: "#0cc81f", marginBottom: "1rem", fontWeight: "700" }}>{folder.title}</h3>
                 <p style={{ color: "#4a5568", lineHeight: "1.6", fontSize: "1.05rem" }}>{folder.description}</p>
               </div>
             </div>
@@ -329,11 +309,116 @@ function WhatWeDoView() {
   );
 }
 
+function OurPurpose() {
+  return (
 
-/* --- VIEW TARGET: ABOUT US INTERACTIVE GLASS CARD VIEW --- */
+    <div className="about-container" style={{ padding: "80px 20px", backgroundColor: "#f4eeee", color: "#111827", minHeight: "100vh" }}>
+      <div className="about-content-wrapper" style={{ maxWidth: "1000px", margin: "0 auto" }}>
+        
+
+        <div style={{ textAlign: "center", marginBottom: "50px" }}>
+
+          <span className="about-eyebrow" style={{ color: "#00C334", fontWeight: "600", letterSpacing: "1.5px" }}>
+            OUR PURPOSE & PHILOSOPHY
+          </span>
+          <h1 className="about-main-title" style={{ fontSize: "2.5rem", marginTop: "10px", fontWeight: "700", color: "#0f172a" }}>
+            Why Social Impact Matters — <span style={{ color: "#00C334", fontStyle: "italic" }}>Now More Than Ever</span>
+          </h1>
+          <p className="about-card-text" style={{ fontSize: "1.15rem", opacity: 0.85, maxWidth: "700px", margin: "20px auto 0", color: "#334155" }}>
+            In today’s rapidly evolving world, social impact is no longer optional — it’s essential.
+          </p>
+        </div>
+        <div className="about-glass-card" style={{ padding: "30px", marginBottom: "40px", backgroundColor: "rgba(0, 0, 0, 0.02)", border: "1px solid rgba(0, 0, 0, 0.08)", borderRadius: "12px" }}>
+          <p className="about-card-text" style={{ fontSize: "1.05rem", lineHeight: "1.6", marginBottom: "20px", color: "#334155" }}>
+            Health systems are under pressure. Communities face widening inequities. Technology is advancing faster than many institutions can adapt. In this environment, organizations have a responsibility to go beyond service delivery and focus on sustainable, measurable change.
+          </p>
+          <div style={{ borderTop: "1px solid rgba(0, 0, 0, 0.1)", margin: "20px 0" }} />
+          <p className="about-card-text" style={{ fontSize: "1.1rem", fontWeight: "500", color: "#0f172a" }}>
+            At <span style={{ color: "#00C334", fontWeight: "700" }}>Steve & Michael Consulting Group</span>, we believe social impact means strengthening the foundations of public health — not just responding to crises, but building resilient systems that prevent them.
+          </p>
+        </div>
+
+        <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "25px", borderBottom: "1px solid rgba(0, 0, 0, 0.1)", paddingBottom: "10px", color: "#0f172a" }}>
+          Social impact matters because:
+        </h2>
+        
+        <div className="about-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px", marginBottom: "40px" }}>
+          
+          <div className="about-glass-card" style={{ padding: "24px", margin: "0", backgroundColor: "rgba(0, 0, 0, 0.02)", border: "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
+              <span style={{ fontSize: "1.5rem" }}>🏥</span>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: "600", margin: "0", color: "#0f172a" }}>Stronger Health Systems Save Lives</h3>
+            </div>
+            <p className="about-card-text" style={{ fontSize: "0.95rem", opacity: 0.85, lineHeight: "1.5", color: "#475569" }}>
+              When we invest in capacity building, digital health solutions, and AI-driven decision support, we empower health professionals and institutions to deliver better, faster, and more equitable care.
+            </p>
+          </div>
+
+          <div className="about-glass-card" style={{ padding: "24px", margin: "0", backgroundColor: "rgba(0, 0, 0, 0.02)", border: "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
+              <span style={{ fontSize: "1.5rem" }}>⚡</span>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: "600", margin: "0", color: "#0f172a" }}>Innovation Must Be Equitable</h3>
+            </div>
+            <p className="about-card-text" style={{ fontSize: "0.95rem", opacity: 0.85, lineHeight: "1.5", color: "#475569" }}>
+              Technology in healthcare is powerful — but only if it’s accessible. Bridging the gap between research and practice ensures that innovation benefits all communities, not just a few.
+            </p>
+          </div>
+
+          <div className="about-glass-card" style={{ padding: "24px", margin: "0", backgroundColor: "rgba(0, 0, 0, 0.02)", border: "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
+              <span style={{ fontSize: "1.5rem" }}>📊</span>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: "600", margin: "0", color: "#0f172a" }}>Evidence Drives Sustainable Change</h3>
+            </div>
+            <p className="about-card-text" style={{ fontSize: "0.95rem", opacity: 0.85, lineHeight: "1.5", color: "#475569" }}>
+              Data-driven strategies and rigorous research allow organizations to design programs that are not only effective, but scalable and sustainable.
+            </p>
+          </div>
+          <div className="about-glass-card" style={{ padding: "24px", margin: "0", backgroundColor: "rgba(0, 0, 0, 0.02)", border: "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
+              <span style={{ fontSize: "1.5rem" }}>🤝</span>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: "600", margin: "0", color: "#0f172a" }}>Collaboration Multiplies Impact</h3>
+            </div>
+            <p className="about-card-text" style={{ fontSize: "0.95rem", opacity: 0.85, lineHeight: "1.5", color: "#475569" }}>
+              Working alongside governments, NGOs, academic institutions, and health organizations creates shared ownership — and shared progress.
+            </p>
+          </div>
+
+        </div>
+
+        <div className="about-glass-card" style={{ padding: "30px", borderLeft: "4px solid #086f55", marginBottom: "40px", backgroundColor: "rgba(8, 111, 85, 0.04)" }}>
+          <p className="about-card-text" style={{ fontSize: "1.05rem", lineHeight: "1.6", margin: "0", color: "#1e293b" }}>
+            As a public health–focused social enterprise, we reinvest our expertise into initiatives that expand access to health innovation and strengthen population well-being. For us, social impact isn’t a side initiative — it’s embedded in every research project, grant proposal, digital solution, and partnership we build.
+          </p>
+        </div>
+
+        <div style={{ textAlign: "center", paddingTop: "20px", borderTop: "1px solid rgba(0, 0, 0, 0.1)" }}>
+          <p className="about-card-text" style={{ fontSize: "1.1rem", opacity: 0.9, marginBottom: "10px", color: "#334155" }}>
+            The future of public health depends on organizations willing to combine innovation with purpose.
+          </p>
+          <p style={{ color: "#00C334", fontWeight: "700", fontSize: "0.95rem", letterSpacing: "1px" }}>
+            SOCIAL IMPACT MATTERS BECAUSE HEALTHIER COMMUNITIES CREATE STRONGER SOCIETIES.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 function AboutUsView() {
   return (
     <div className="about-container">
+      <style>{`
+        @keyframes scrollLeftToRight {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      `}</style>
+
       <div className="about-hero-backdrop">
         <div className="about-dark-overlay" />
         
@@ -375,13 +460,72 @@ function AboutUsView() {
               </p>
             </div>
           </div>
+
+          <section className="founding-team-section" style={{ marginTop: "60px", color: "#ffffff", overflow: "hidden", width: "100%", position: "relative" }}>
+            <h2 className="founding-team-title" style={{ fontSize: "2rem", marginBottom: "30px", fontWeight: "bold", borderBottom: "2px solid rgba(255,255,255,0.1)", paddingBottom: "10px" }}>Founding Team</h2>
+            
+            <div style={{ width: "100%", overflow: "hidden", display: "flex" }}>
+
+              <div style={{ display: "flex", width: "max-content", animation: "scrollLeftToRight 25s linear infinite", gap: "20px" }}>
+                
+                {/* Track 1 */}
+                <div style={{ display: "flex", gap: "20px", flexShrink: 0 }}>
+                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
+                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "8px", fontWeight: "600" }}>Managing Partner — Business & Partnerships</h3>
+                    <p style={{ fontSize: "0.9rem", opacity: 0.8, marginBottom: "12px", fontStyle: "italic" }}><strong>Focus Area:</strong> Strategy, BD, external relations</p>
+                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Client relationships, partnership development, overall strategic direction, early-stage proposal input.</p>
+                  </div>
+
+                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
+                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Managing Partner — Technical Delivery</h3>
+                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Project delivery standards, technical quality assurance, methodology, staff/consultant oversight.</p>
+                  </div>
+
+                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
+                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Public Health Consultant</h3>
+                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key ResponsResponsibilities:</strong> Research design, evidence synthesis, and project execution across digital health, nutrition, and capacity-building contracts.</p>
+                  </div>
+
+                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
+                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Grants & Proposals Associate</h3>
+                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Donor research, LOIs and concept notes, budget narratives, compliance formatting and submission.</p>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", gap: "20px", flexShrink: 0 }}>
+                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
+                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "8px", fontWeight: "600" }}>Managing Partner — Business & Partnerships</h3>
+                    <p style={{ fontSize: "0.9rem", opacity: 0.8, marginBottom: "12px", fontStyle: "italic" }}><strong>Focus Area:</strong> Strategy, BD, external relations</p>
+                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Client relationships, partnership development, overall strategic direction, early-stage proposal input.</p>
+                  </div>
+
+                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
+                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Managing Partner — Technical Delivery</h3>
+                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Project delivery standards, technical quality assurance, methodology, staff/consultant oversight.</p>
+                  </div>
+
+                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
+                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Public Health Consultant</h3>
+                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Research design, evidence synthesis, and project execution across digital health, nutrition, and capacity-building contracts.</p>
+                  </div>
+
+                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
+                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Grants & Proposals Associate</h3>
+                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Donor research, LOIs and concept notes, budget narratives, compliance formatting and submission.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
         </div>
       </div>
     </div>
   );
 }
 
-/* --- VIEW TARGET: OUR RESEARCH ROADMAP INFOGRAPHIC --- */
+
 function OurResearchView() {
   const roadmapData = [
     {
@@ -499,7 +643,6 @@ function OurResearchView() {
   );
 }
 
-/* --- NEW VIEW TARGET: WHERE WE WORK / BRANCHES SYSTEM --- */
 function BranchesView() {
 
 
@@ -517,7 +660,6 @@ function BranchesView() {
   );
 }
 
-/* --- MAIN ROOT HOMEPAGE SYSTEM CONTROLLER --- */
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("home");
 
@@ -530,7 +672,7 @@ export default function HomePage() {
         {activeTab === "what-we-do" && <WhatWeDoView />}
         {activeTab === "about-us" && <AboutUsView />}
         {activeTab === "our-research" && <OurResearchView />}
-        {activeTab === "our-programs" && <BranchesView />}
+        {activeTab === "our-purpose" && <OurPurpose />}
 
         {activeTab === "events" && (
           <div className="tab-view-container">

@@ -18,9 +18,24 @@
   --font-body: var(--font-inter), sans-serif;
 }
 
+header nav a, 
+.header-container nav a,
+.navbar a {
+  color: #057021 !important;
+}
+
+header nav a:hover,
+.header-container nav a:hover,
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+
 * {
   box-sizing: border-box;
 }
+
+
 
 body {
   margin: 0;
@@ -52,7 +67,6 @@ button:focus-visible {
   padding: 0 24px;
 }
 
-/* ---- Site header ---- */
 .header {
   position: sticky;
   top: 0;
@@ -90,16 +104,6 @@ button:focus-visible {
   .nav {
     display: flex;
   }
-}
-
-.nav-item {
-  padding: 12px 20px;
-  border-radius: 14px 14px 0 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--cream);
-  background-color: rgba(178, 222, 18, 0.4);
-  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
 .nav-item:hover {
@@ -1165,7 +1169,7 @@ button:focus-visible {
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: 1px solid #dfba6b; /* Accent target tone */
+  border: 1px solid #dfba6b; 
   color: #dfba6b;
   border-radius: 50%;
 }
@@ -1185,7 +1189,6 @@ button:focus-visible {
   margin: 0;
 }
 
-/* Rounded Square Social Buttons Matrix */
 .footer-social-row {
   display: flex;
   gap: 0.75rem;
@@ -1212,7 +1215,6 @@ button:focus-visible {
   border-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Right Navigation Columns Matrix distributed horizontally */
 .footer-links-wrapper {
   display: flex;
   justify-content: space-between;
@@ -1230,7 +1232,7 @@ button:focus-visible {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(223, 186, 107, 1); /* Subdued label heading */
+  color: rgba(223, 186, 107, 1); 
   margin-bottom: 0.5rem;
 }
 
@@ -1242,10 +1244,10 @@ button:focus-visible {
 }
 
 .footer-nav-link:hover {
-  color: #dfba6b; /* Highlight on hover action */
+  color: #dfba6b; 
 }
 
-/* Baseline Bar */
+
 .footer-bottom-bar {
   max-width: 1200px;
   margin: 0 auto;
@@ -1255,7 +1257,6 @@ button:focus-visible {
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* Responsive Adaptive Controls for Mobile Viewports */
 @media (max-width: 968px) {
   .footer-inner-grid {
     grid-template-columns: 1fr;

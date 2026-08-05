@@ -5,29 +5,49 @@ import Link from "next/link";
 import "./contactus.css";
 
 export default function ContactPage() {
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     subject: "",
     message: "",
   });
+  
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", form);
-    // Clear form after submission
-    setForm({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+    setStatus("Sending...");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("Message sent successfully! Check your inbox.");
+        setFormData({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus(`Failed: ${data.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Form submit error:", error);
+      setStatus("Error sending message. Please try again.");
+    }
   };
 
   return (
     <div className="page">
-      {/* Hero Section */}
+
       <section className="hero">
         <p className="eyebrow">Get In Touch</p>
         <h1 className="heroTitle">Contact Us</h1>
@@ -36,10 +56,8 @@ export default function ContactPage() {
         </p>
       </section>
 
-      {/* Main Content Layout */}
       <div className="contentGrid">
         
-        {/* Left Side: Contact Form Card */}
         <div className="card">
           <h2 className="cardTitle">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="form">
@@ -52,7 +70,7 @@ export default function ContactPage() {
                   id="firstName"
                   name="firstName"
                   placeholder="John"
-                  value={form.firstName}
+                  value={formData.firstName}
                   onChange={handleChange}
                   required
                 />
@@ -64,7 +82,7 @@ export default function ContactPage() {
                   id="lastName"
                   name="lastName"
                   placeholder="Doe"
-                  value={form.lastName}
+                  value={formData.lastName}
                   onChange={handleChange}
                   required
                 />
@@ -78,7 +96,7 @@ export default function ContactPage() {
                 id="email"
                 name="email"
                 placeholder="you@example.com"
-                value={form.email}
+                value={formData.email}
                 onChange={handleChange}
                 required
               />
@@ -91,7 +109,7 @@ export default function ContactPage() {
                 id="subject"
                 name="subject"
                 placeholder="How can we help you?"
-                value={form.subject}
+                value={formData.subject}
                 onChange={handleChange}
                 required
               />
@@ -104,7 +122,7 @@ export default function ContactPage() {
                 name="message"
                 rows="5"
                 placeholder="Write your message here..."
-                value={form.message}
+                value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>
@@ -118,14 +136,15 @@ export default function ContactPage() {
               Send Message
             </button>
           </form>
+
+          {status && <p style={{ marginTop: "12px", fontWeight: "bold", color: status.includes("successfully") ? "#00E63D" : "#ff4d4d" }}>{status}</p>}
         </div>
 
-        {/* Right Side: Info & Socials Card */}
         <div className="card">
           <h2 className="cardTitle">Contact Information</h2>
           
           <ul className="infoList">
-            {/* Address */}
+     
             <li className="infoItem">
               <div className="infoIcon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -139,7 +158,6 @@ export default function ContactPage() {
               </div>
             </li>
 
-            {/* Phone */}
             <li className="infoItem">
               <div className="infoIcon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -152,7 +170,6 @@ export default function ContactPage() {
               </div>
             </li>
 
-            {/* Email */}
             <li className="infoItem">
               <div className="infoIcon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -167,7 +184,6 @@ export default function ContactPage() {
             </li>
           </ul>
 
-          {/* Social Links Block */}
           <div className="social">
             <span className="followLabel">Follow Us:</span>
             <div className="socialIcons">
@@ -178,7 +194,6 @@ export default function ContactPage() {
                   <circle cx="4" cy="4" r="2" />
                 </svg>
               </Link>
-
             </div>
           </div>
 

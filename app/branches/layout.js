@@ -23,16 +23,10 @@ export default function BranchLayout({ children }) {
         <div className="branch-brand-row">
           <div className="branch-brand">
             <img
-              src="/branch.png"
+              src="/branch1.png"
               alt="Branch logo"
-              style={{ width: "130px", height: "110px", borderRadius: "8px", objectFit: "cover", background: "#fff" }}
+              style={{ width: "230px", height: "190px", borderRadius: "8px", objectFit: "cover" }}
             />
-            <div>
-              <h1 style={{ color: "#FAF7F5", fontSize: "18px", fontWeight: 700, margin: 0 }}>
-                Steve Foundation
-              </h1>
-              <p style={{ color: "#F190AC", fontSize: "12px", margin: "2px 0 0" }}></p>
-            </div>
           </div>
           <button className="branch-subscribe-btn">Contact us</button>
         </div>

@@ -59,7 +59,13 @@ export default function RootLayout({ children }) {
           [class*="header"] nav *.active,
           header nav *[class*="active"],
           .navbar *[class*="active"] {
-            color: #04ce3a !important; 
+            background-color: transparent !important;
+            font-size: 16px !important;
+            padding:3px !important;
+            margin:12px !important;
+            border:2px !important;
+            border-radius:2px !important; 
+            color: #0e04ce !important; 
             font-weight: 500 !important;
             text-decoration: none !important;
           }

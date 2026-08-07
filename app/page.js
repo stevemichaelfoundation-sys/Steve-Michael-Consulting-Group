@@ -21,13 +21,15 @@ function Header({ activeTab, setActiveTab }) {
   return (
     <header className="header">
       <div className="header-inner">
+
       
           <img
               src="/logo-img.jpg"
               alt="Steve & Michael consutlutation logo"
               style={{ width: "160px", height: "140px", borderRadius: "10px", objectFit: "cover" }}
             />
-      
+       </div>
+       <div className="header-actions">
         <nav className="nav">
           {NAV_ITEMS.map((item) => (
             <button
@@ -40,7 +42,6 @@ function Header({ activeTab, setActiveTab }) {
           ))}
         </nav>
 
-        <div className="header-actions">
           <a 
             href="https://www.linkedin.com/company/steve-michael-consulting-group/" 
             target="_blank" 
@@ -57,21 +58,8 @@ function Header({ activeTab, setActiveTab }) {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
           </button>
         </div>
-      </div>
     </header>
   );
-}
-
-function PlaceholderImage({ label, tone = "white" }) {
-  const [showSecondImage, setShowSecondImage] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowSecondImage((prev) => !prev);
-    }, 3000); 
-    return () => clearInterval(interval);
-  }, []);
-
 }
 
 function ContentRow({ eyebrow, title, body, eyebrowColor = "#004d40" }) {
@@ -116,19 +104,6 @@ function ContentRow({ eyebrow, title, body, eyebrowColor = "#004d40" }) {
       }}>
         {body}
       </p>
-    </div>
-  );
-}
-
-function ImageTextRow({ eyebrow, title, body, imageLabel, tone = "white", reverse = false }) {
-  return (
-    <div className={`image-text-row${reverse ? " reverse" : ""}`}>
-      <PlaceholderImage label={imageLabel} tone={tone} />
-      <div>
-        <p className={`eyebrow eyebrow-${tone}`}>{eyebrow}</p>
-        <h2 className="row-title">{title}</h2>
-        <p className="row-body">{body}</p>
-      </div>
     </div>
   );
 }
@@ -683,7 +658,7 @@ function EventsSection() {
   
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(219, 46, 46, 0.12)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.12)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -692,7 +667,7 @@ function EventsSection() {
             >
               <div style={{
                 height: '160px',
-                backgroundColor: '#393b39',
+                backgroundColor: '#0c1624',
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
@@ -837,7 +812,7 @@ export default function HomePage() {
             </div>
 
             <section className="rows-section" style={{ backgroundColor: '#ffffff', padding: '20px 40px' }}>
-              <div style={{ maxWidth: '1100px', margin: '0 auto', width: '100%' }}>
+              <div style={{ maxWidth: '1100px', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px',maxWidth:'1100px' }}> 
                 
                 <ContentRow 
                   eyebrow="Nutrition & Food Security"

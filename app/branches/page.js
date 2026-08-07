@@ -73,7 +73,6 @@ export default function BranchHomePage() {
             </div>
           </div>
 
-          {/* Right Block Side: Injected Fundraising Widget Card Component Node */}
           <div style={{ flexShrink: 0, width: '100%', maxWidth: '380px', margin: '0 auto' }}>
             <FundraisingWidget />
           </div>

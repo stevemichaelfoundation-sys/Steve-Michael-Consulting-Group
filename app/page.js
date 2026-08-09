@@ -697,8 +697,8 @@ function EventsSection() {
               <div style={{ padding: '25px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
             
                 <div style={{ display: 'flex', gap: '15px', fontSize: '13px', color: '#666666', marginBottom: '12px' }}>
-                  <span>📅 Aug 24, 2026</span>
-                  <span>⏰ 2:00 PM EAT</span>
+                  <span>coming soon</span>
+                  <span>stay tuned</span>
                 </div>
 
 
@@ -717,7 +717,7 @@ function EventsSection() {
                   marginBottom: '25px',
                   lineHeight: '1.5'
                 }}>
-                
+                //
                 </div>
 
                 <button style={{

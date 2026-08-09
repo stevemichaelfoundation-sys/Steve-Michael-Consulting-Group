@@ -717,7 +717,7 @@ function EventsSection() {
                   marginBottom: '25px',
                   lineHeight: '1.5'
                 }}>
-                  I will put words in here according to the event
+                
                 </div>
 
                 <button style={{
@@ -845,7 +845,7 @@ export default function HomePage() {
               </div>
             </section>
             
-            <section className="deeper-section">
+            {/* <section className="deeper-section">
               <div className="deeper-inner">
                 <h2 className="deeper-title">Go deeper</h2>
                 <div className="folder-grid">
@@ -854,7 +854,7 @@ export default function HomePage() {
                   <FolderCard title="Impact stories" description="First-hand accounts from the people we work with." href="/impact-stories" tone="purple" />
                 </div>
               </div>
-            </section>
+            </section> */}
             
             <ScopeSection />
           </>

@@ -594,9 +594,9 @@ function OurResearchView() {
               <polyline points="14 2 14 8 20 8" />
               <line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" />
             </svg>
-            <h2>Attached Laptop Research & Strategy Documents</h2>
+            <h2>Research & Strategy Documents</h2>
           </div>
-          <p className="docs-intro-text">Click the link options below to securely view, inspect, or download the baseline data sheets, analysis documentation briefs, and analytical logs transferred directly from our local workstation server storage pipelines:</p>
+          <p className="docs-intro-text"> </p>
           
           <div className="documents-download-grid">
             {attachedDocuments.map((doc, idx) => (
@@ -717,7 +717,7 @@ function EventsSection() {
                   marginBottom: '25px',
                   lineHeight: '1.5'
                 }}>
-                //
+                 {/* I will add a section here for events */}
                 </div>
 
                 <button style={{

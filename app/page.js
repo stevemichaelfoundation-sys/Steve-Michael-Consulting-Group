@@ -194,6 +194,7 @@ function ScopeSection() {
     { target: 40, suffix: "+", label: "Projects delivered" },
     { target: 3, suffix: "", label: "Countries reached" },
     { target: 30, suffix: "K+", prefix: "$", label: "Grants secured" },
+    {target: 500, suffix: "K+", label: "Healthcare professionals trained"}
   ];
   const tags = ["Digital Health", "AI in Healthcare", "Capacity Building of Health care professionals", "Consulting", "Social Impact Enterprise/Health", "Grant & proposal Writing", "Nutrition & food Systems"];
 
@@ -627,7 +628,8 @@ function EventsSection() {
   const events = [
     { id: 1, type: "Workshop", title: "Capacity Building Workshop", icon: "📚" },
     { id: 2, type: "Symposium", title: "Global Health Symposium", icon: "🌐" },
-    { id: 3, type: "Summit", title: "Local Clinic Support Summit", icon: "🏥" }
+    { id: 3, type: "Summit", title: "Local Clinic Support Summit", icon: "🏥" },
+    {id: 4, type: "Talent and Scholaship competition", title: "Rewards students and young adults for exceptional skills in areas like STEM, performing arts, writing, and innovation", icon: "💻" }
   ];
 
   return (

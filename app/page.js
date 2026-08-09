@@ -812,7 +812,26 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+{/* Testimonial Quote Section */}
+      <section className="testimonial-container">
+       <div className="testimonial-content">
+          <span className="testimonial-quote-icon">“</span>
+    
+          <p className="testimonial-text">
+            Excellence in healthcare demands clinical competence, visionary leadership, and unwavering dedication. 
+            The future of medicine depends entirely on our ability to support the talent, ambition, and potential of tomorrow's providers. 
+         By removing barriers, we empower the brightest minds to advance medical research, elevate patient care, and transform global health systems
+         </p>
+    
+         {/* <div className="testimonial-author-box">
+           <span className="testimonial-author-name"> I will add partener once you have them</span>
+          <span className="testimonial-author-title">Financial Services</span>
+         </div> */}
+       </div>
+        </section>
 
+           
+           
             <section className="rows-section" style={{ backgroundColor: '#ffffff', padding: '20px 40px' }}>
               <div style={{ maxWidth: '1100px', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px',maxWidth:'1100px' }}> 
                 
@@ -856,8 +875,8 @@ export default function HomePage() {
                   <FolderCard title="Impact stories" description="First-hand accounts from the people we work with." href="/impact-stories" tone="purple" />
                 </div>
               </div>
-            </section>
-             */}
+            </section> */}
+            
             <ScopeSection />
           </>
         )}

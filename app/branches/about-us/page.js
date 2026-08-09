@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import "./about-us.css"; // Fixed: Matched name perfectly to file sidebar
+import "./about-us.css"; 
 
 export default function AboutPage() {
   const teamMembers = [
@@ -59,7 +59,7 @@ export default function AboutPage() {
 
   return (
     <div className="aboutPageWrapper">
-      {/* --- HERO SECTION --- */}
+
       <section className="aboutHeroGrid">
         <div className="heroLeftColumn">
           <p className="eyebrowLabel">HOW WE HELP</p>
@@ -77,7 +77,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* --- PILLARS SECTION --- */}
       <section className="pillarsSection">
         <h2 className="sectionMainHeader">What We Do</h2>
         <p className="sectionSubtitle">We focus on four interconnected pillars:</p>
@@ -108,8 +107,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* --- APPROACH SECTION --- */}
       <section className="approachSection">
         <div className="approachContainer">
           <h2 className="sectionMainHeader">Our Approach</h2>
@@ -119,7 +116,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* --- TEAM SECTION --- */}
       <section className="teamSection">
         <h2 className="sectionMainHeader">Meet Our Team</h2>
         <p className="sectionSubtitle">The dedicated individuals guiding our mission on the ground.</p>

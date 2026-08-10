@@ -1960,101 +1960,22 @@ button:focus-visible {
   }
 }
 
-/* Responsive Styles for Mobile Devices */
-@media screen and (max-width: 768px) {
-  
-  header, 
-  .navbar, 
-  nav {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 15px !important;
-    gap: 15px !important;
-  }
-
-  nav ul, 
-  .nav-links,
-  header div:has(a) {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 10px 15px !important;
-  }
-
-  .hero, 
-  .banner, 
-  [class*="banner"], 
-  [class*="hero"] {
-    min-height: auto !important;
-    height: 300px !important;
-    background-size: cover !important;
-    background-position: center !important;
-  }
-
-  .container, 
-  .grid, 
-  .row,
-  main > div:has(.col),
-  section:has(h3, h4) {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    gap: 40px !important;
-  }
-
-  .col, 
-  .column, 
-  [class*="col-"], 
-  main > div > div {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important;
-    text-align: left !important; 
-    margin-bottom: 20px !important;
-  }
-
-  h1 {
-    font-size: 2.2rem !important;
-    line-height: 1.2 !important;
-  }
-
-  h2 {
-    font-size: 1.8rem !important;
-    line-height: 1.3 !important;
-  }
-
-  h3 {
-    font-size: 1.5rem !important;
-    line-height: 1.4 !important;
-  }
-
-  p {
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-  }
-}
-
 @media screen and (max-width: 768px) {
 
   header.header,
   header,
   header[class*="header"] {
     display: flex !important;
-    flex-direction: column !important; 
+    flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    height: auto !important;
+    height: auto !important; 
     min-height: auto !important;
     padding: 12px 16px !important;
     background-color: #ffffff !important; 
     position: relative !important;
     z-index: 99999 !important;
   }
-
   header.header > div,
   header.header nav,
   header.header ul,
@@ -2064,28 +1985,42 @@ button:focus-visible {
   header nav,
   header ul {
     display: flex !important; 
-    flex-direction: column !important; 
-    align-items: center !important;
+    flex-direction: column !important;
+    align-items: center !important; 
     justify-content: center !important;
     width: 100% !important; 
     height: auto !important;
     position: static !important; 
-
-    border-radius: 4px !important; 
-    padding: 6px 0 !important;
-    margin: 8px 0 0 0 !important;
+    margin: 8px 0 0 0 !important; 
     visibility: visible !important;
     opacity: 1 !important;
   }
-
-
   header a,
   .header-inner a,
   .header-actions a,
   header nav a,
   header.header a,
   header nav *,
- 
+  [class*="header"] a {
+    display: flex !important;
+    justify-content: space-between !important; 
+    align-items: center !important;
+    width: 100% !important;
+    padding: 14px 20px !important; 
+    font-size: 13px !important; 
+    font-weight: 600 !important;
+    color: #ffffff !important; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; 
+    white-space: nowrap !important; 
+    text-decoration: none !important;
+    text-transform: capitalize !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important; 
+  }
+
   header a::after,
   .header-inner a::after,
   header nav a::after,
@@ -2106,7 +2041,6 @@ button:focus-visible {
   .header-inner a:last-child {
     border-bottom: none !important;
   }
-
   main section,
   [class*="hero"],
   main > div:first-of-type,
@@ -2132,7 +2066,7 @@ button:focus-visible {
     font-size: 1.75rem !important; 
     line-height: 1.25 !important;
     margin: 10px 0 !important;
-    color: #1c65b8 !important; 
+    color: #3478c6 !important; 
   }
 
   main p,
@@ -2155,7 +2089,7 @@ button:focus-visible {
 
 .testimonial-container {
   width: 100% !important;
-  background-color: #ebeff0 !important;
+  background-color: #f9f6f3 !important;
   padding: 60px 24px !important;
   display: flex !important;
   justify-content: center !important;
@@ -2177,7 +2111,7 @@ button:focus-visible {
   font-family: var(--font-fraunces), serif !important;
   font-size: 80px !important;
   line-height: 1 !important;
-  color: #3564ff !important;
+  color: #452ac7 !important; 
   height: 40px !important; 
   display: block !important;
 }
@@ -2186,8 +2120,7 @@ button:focus-visible {
   font-family: var(--font-inter), sans-serif !important;
   font-size: 24px !important;
   font-weight: 400 !important;
-  font-style: italic !important;
-  
+  font-style: italic !important; 
   line-height: 1.5 !important;
   color: #1a1a1a !important; 
   margin: 0 !important;
@@ -2205,7 +2138,7 @@ button:focus-visible {
   font-family: var(--font-inter), sans-serif !important;
   font-size: 13px !important;
   font-weight: 600 !important;
-  color: #4c97e2 !important;
+  color: #2c3e50 !important;
   text-transform: capitalize !important;
 }
 
@@ -2213,7 +2146,7 @@ button:focus-visible {
   font-family: var(--font-inter), sans-serif !important;
   font-size: 12px !important;
   font-weight: 400 !important;
-  color: #e1e6e7 !important; 
+  color: #7f8c8d !important; 
 }
 
 @media screen and (max-width: 768px) {
@@ -2231,4 +2164,3 @@ button:focus-visible {
     height: 30px !important;
   }
 }
-

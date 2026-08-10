@@ -71,6 +71,22 @@ export default function RootLayout({ children }) {
               background-color: #ffffff !important;
             }
 
+            header::before {
+              content: "☰" !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              font-size: 20px !important;
+              font-weight: bold !important;
+              color: #000000 !important;
+              width: 44px !important;
+              height: 44px !important;
+              background-color: #ff9800 !important;
+              border-radius: 50% !important;
+              border: 1px solid #000000 !important;
+              cursor: pointer !important;
+              z-index: 100002 !important;
+            }
 
             header.open::before {
               content: "✕" !important;

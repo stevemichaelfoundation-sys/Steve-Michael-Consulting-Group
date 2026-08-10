@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import FundraisingWidget from './branches/support/support';
 
 
 const NAV_ITEMS = [
@@ -194,7 +193,7 @@ function ScopeSection() {
     { target: 40, suffix: "+", label: "Projects delivered" },
     { target: 3, suffix: "", label: "Countries reached" },
     { target: 30, suffix: "K+", prefix: "$", label: "Grants secured" },
-    {target: 500, suffix: "K+", label: "Healthcare professionals trained"}
+    {target: 5, suffix: "K+", label: "Healthcare professionals trained"}
   ];
   const tags = ["Digital Health", "AI in Healthcare", "Capacity Building of Health care professionals", "Consulting", "Social Impact Enterprise/Health", "Grant & proposal Writing", "Nutrition & food Systems"];
 

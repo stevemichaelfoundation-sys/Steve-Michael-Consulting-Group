@@ -718,7 +718,6 @@ function EventsSection() {
                   marginBottom: '25px',
                   lineHeight: '1.5'
                 }}>
-                 {/* I will add a section here for events */}
                 </div>
 
                 <button style={{
@@ -811,7 +810,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-{/* Testimonial Quote Section */}
       <section className="testimonial-container">
        <div className="testimonial-content">
           <span className="testimonial-quote-icon">“</span>
@@ -822,10 +820,6 @@ export default function HomePage() {
          By removing barriers, we empower the brightest minds to advance medical research, elevate patient care, and transform global health systems
          </p>
     
-         {/* <div className="testimonial-author-box">
-           <span className="testimonial-author-name"> I will add partener once you have them</span>
-          <span className="testimonial-author-title">Financial Services</span>
-         </div> */}
        </div>
         </section>
 
@@ -864,17 +858,6 @@ export default function HomePage() {
 
               </div>
             </section>
-            
-            {/* <section className="deeper-section">
-              <div className="deeper-inner">
-                <h2 className="deeper-title">Go deeper</h2>
-                <div className="folder-grid">
-                  <FolderCard title="Steve Foundation" description="Regional and country offices, and the teams that lead them." href="/branches" tone="green" />
-                  <FolderCard title="Focus area" description="The core issues we concentrate our work around." href="/focus-area" tone="pink" />
-                  <FolderCard title="Impact stories" description="First-hand accounts from the people we work with." href="/impact-stories" tone="purple" />
-                </div>
-              </div>
-            </section> */}
             
             <ScopeSection />
           </>

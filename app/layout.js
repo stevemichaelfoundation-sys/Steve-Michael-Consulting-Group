@@ -23,6 +23,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <head>
         <style>{`
+          /* === GLOBAL APPLICATION SMOOTH SCROLL === */
+          html {
+            scroll-behavior: smooth;
+          }
+
           /* === DESKTOP HEADER NAVBAR STYLES === */
           header, .header-container, nav.navbar, [class*="header"] {
             background-color: #f1f1f4 !important;

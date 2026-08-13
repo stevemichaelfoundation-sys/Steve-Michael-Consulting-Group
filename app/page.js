@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-
-const NAV_ITEMS = [
+const navItems = [
   { label: "Home", id: "home" },
   { label: "What we do", id: "what-we-do" },
   { label: "Our purpose", id: "our-purpose" },
   { label: "About us", id: "about-us" },
   { label: "Our research", id: "our-research" },
   { label: "Events Section", id: "events-section" },
+  { label: "Contact Us", id: "contact-section" } 
 ];
 
 function Header({ activeTab, setActiveTab }) {
@@ -20,8 +20,6 @@ function Header({ activeTab, setActiveTab }) {
   return (
     <header className="header">
       <div className="header-inner">
-
-      
           <img
               src="/logo-img.jpg"
               alt="Steve & Michael consutlutation logo"
@@ -30,7 +28,7 @@ function Header({ activeTab, setActiveTab }) {
        </div>
        <div className="header-actions">
         <nav className="nav">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
@@ -120,7 +118,6 @@ function FolderCard({ title, description, href, tone = "purple" }) {
   );
 }
 
-
 function HeroSection({ setActiveTab }) {
   return (
     <section className="main-hero-section">
@@ -154,6 +151,7 @@ function HeroSection({ setActiveTab }) {
           </button>
         </div>
       </div>
+      <ScopeSection />
     </section>
   );
 }
@@ -291,13 +289,9 @@ function WhatWeDoView() {
 
 function OurPurpose() {
   return (
-
     <div className="about-container" style={{ padding: "80px 20px", backgroundColor: "#f4eeee", color: "#111827", minHeight: "100vh" }}>
       <div className="about-content-wrapper" style={{ maxWidth: "1000px", margin: "0 auto" }}>
-        
-
         <div style={{ textAlign: "center", marginBottom: "50px" }}>
-
           <span className="about-eyebrow" style={{ color: "#00C334", fontWeight: "600", letterSpacing: "1.5px" }}>
             OUR PURPOSE & PHILOSOPHY
           </span>
@@ -305,7 +299,7 @@ function OurPurpose() {
             Why Social Impact Matters — <span style={{ color: "#00C334", fontStyle: "italic" }}>Now More Than Ever</span>
           </h1>
           <p className="about-card-text" style={{ fontSize: "1.15rem", opacity: 0.85, maxWidth: "700px", margin: "20px auto 0", color: "#334155" }}>
-            In today’s rapidly evolving world, social impact is no longer optional — it’s essential.
+            In today's rapidly evolving world, social impact is no longer optional — it's essential.
           </p>
         </div>
         <div className="about-glass-card" style={{ padding: "30px", marginBottom: "40px", backgroundColor: "rgba(0, 0, 0, 0.02)", border: "1px solid rgba(0, 0, 0, 0.08)", borderRadius: "12px" }}>
@@ -323,7 +317,6 @@ function OurPurpose() {
         </h2>
         
         <div className="about-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px", marginBottom: "40px" }}>
-          
           <div className="about-glass-card" style={{ padding: "24px", margin: "0", backgroundColor: "rgba(0, 0, 0, 0.02)", border: "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "12px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
               <span style={{ fontSize: "1.5rem" }}>🏥</span>
@@ -340,7 +333,7 @@ function OurPurpose() {
               <h3 style={{ fontSize: "1.2rem", fontWeight: "600", margin: "0", color: "#0f172a" }}>Innovation Must Be Equitable</h3>
             </div>
             <p className="about-card-text" style={{ fontSize: "0.95rem", opacity: 0.85, lineHeight: "1.5", color: "#475569" }}>
-              Technology in healthcare is powerful — but only if it’s accessible. Bridging the gap between research and practice ensures that innovation benefits all communities, not just a few.
+              Technology in healthcare is powerful — but only if it's accessible. Bridging the gap between research and practice ensures that innovation benefits all communities, not just a few.
             </p>
           </div>
 
@@ -362,12 +355,11 @@ function OurPurpose() {
               Working alongside governments, NGOs, academic institutions, and health organizations creates shared ownership — and shared progress.
             </p>
           </div>
-
         </div>
 
         <div className="about-glass-card" style={{ padding: "30px", borderLeft: "4px solid #086f55", marginBottom: "40px", backgroundColor: "rgba(8, 111, 85, 0.04)" }}>
           <p className="about-card-text" style={{ fontSize: "1.05rem", lineHeight: "1.6", margin: "0", color: "#1e293b" }}>
-            As a public health–focused social enterprise, we reinvest our expertise into initiatives that expand access to health innovation and strengthen population well-being. For us, social impact isn’t a side initiative — it’s embedded in every research project, grant proposal, digital solution, and partnership we build.
+            As a public health–focused social enterprise, we reinvest our expertise into initiatives that expand access to health innovation and strengthen population well-being. For us, social impact isn't a side initiative — it's embedded in every research project, grant proposal, digital solution, and partnership we build.
           </p>
         </div>
 
@@ -379,7 +371,6 @@ function OurPurpose() {
             SOCIAL IMPACT MATTERS BECAUSE HEALTHIER COMMUNITIES CREATE STRONGER SOCIETIES.
           </p>
         </div>
-
       </div>
     </div>
   );
@@ -445,33 +436,7 @@ function AboutUsView() {
             <h2 className="founding-team-title" style={{ fontSize: "2rem", marginBottom: "30px", fontWeight: "bold", borderBottom: "2px solid rgba(255,255,255,0.1)", paddingBottom: "10px" }}>Founding Team</h2>
             
             <div style={{ width: "100%", overflow: "hidden", display: "flex" }}>
-
               <div style={{ display: "flex", width: "max-content", animation: "scrollLeftToRight 25s linear infinite", gap: "20px" }}>
-                
-                {/* Track 1 */}
-                <div style={{ display: "flex", gap: "20px", flexShrink: 0 }}>
-                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
-                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "8px", fontWeight: "600" }}>Managing Partner — Business & Partnerships</h3>
-                    <p style={{ fontSize: "0.9rem", opacity: 0.8, marginBottom: "12px", fontStyle: "italic" }}><strong>Focus Area:</strong> Strategy, BD, external relations</p>
-                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Client relationships, partnership development, overall strategic direction, early-stage proposal input.</p>
-                  </div>
-
-                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
-                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Managing Partner — Technical Delivery</h3>
-                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Project delivery standards, technical quality assurance, methodology, staff/consultant oversight.</p>
-                  </div>
-
-                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
-                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Public Health Consultant</h3>
-                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key ResponsResponsibilities:</strong> Research design, evidence synthesis, and project execution across digital health, nutrition, and capacity-building contracts.</p>
-                  </div>
-
-                  <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
-                    <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "12px", fontWeight: "600" }}>Grants & Proposals Associate</h3>
-                    <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Donor research, LOIs and concept notes, budget narratives, compliance formatting and submission.</p>
-                  </div>
-                </div>
-
                 <div style={{ display: "flex", gap: "20px", flexShrink: 0 }}>
                   <div className="about-glass-card" style={{ padding: "24px", margin: "0", width: "320px", flexShrink: 0 }}>
                     <h3 style={{ fontSize: "1.25rem", color: "#4dadff", marginBottom: "8px", fontWeight: "600" }}>Managing Partner — Business & Partnerships</h3>
@@ -494,17 +459,14 @@ function AboutUsView() {
                     <p className="about-card-text" style={{ fontSize: "0.95rem", lineHeight: "1.5", margin: "0" }}><strong>Key Responsibilities:</strong> Donor research, LOIs and concept notes, budget narratives, compliance formatting and submission.</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </section>
-
         </div>
       </div>
     </div>
   );
 }
-
 
 function OurResearchView() {
   const roadmapData = [
@@ -628,20 +590,20 @@ function EventsSection() {
     { id: 1, type: "Workshop", title: "Capacity Building Workshop", icon: "📚" },
     { id: 2, type: "Symposium", title: "Global Health Symposium", icon: "🌐" },
     { id: 3, type: "Summit", title: "Local Clinic Support Summit", icon: "🏥" },
-    {id: 4, type: "Talent and Scholaship competition", title: "Rewards students and young adults for exceptional skills in areas like STEM, performing arts, writing, and innovation", icon: "💻" }
+    { id: 4, type: "Talent and Scholaship competition", title: "Rewards students and young adults for exceptional skills in areas like STEM, performing arts, writing, and innovation", icon: "💻" }
   ];
 
   return (
-    <section style={{ padding: '60px 20px', backgroundColor: '#fafafa', fontFamily: 'sans-serif' }}>
+    <section style={{ padding: '60px 20px', backgroundColor: '#fafafa' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <h2 style={{ color: '#0c1624', fontSize: '28px', fontWeight: '700', marginBottom: '10px' }}>Upcoming Events</h2>
+        <p style={{ color: '#666666', margin: '0 0 30px 0' }}>Stay tuned and register for our upcoming global and local support structures.</p>
         
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '30px',
-          marginTop: '20px'
+          gap: '30px'
         }}>
-          
           {events.map((event) => (
             <div 
               key={event.id}
@@ -656,7 +618,6 @@ function EventsSection() {
                 border: '1px solid #eaeaea',
                 cursor: 'pointer'
               }}
-  
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-8px)';
                 e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.12)';
@@ -675,7 +636,6 @@ function EventsSection() {
                 justifyContent: 'center',
                 color: '#ffffff'
               }}>
-         
                 <span style={{
                   position: 'absolute',
                   top: '15px',
@@ -691,34 +651,18 @@ function EventsSection() {
                 }}>
                   {event.type}
                 </span>
-                
                 <div style={{ opacity: 0.25, fontSize: '55px' }}>{event.icon}</div>
               </div>
 
               <div style={{ padding: '25px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-            
                 <div style={{ display: 'flex', gap: '15px', fontSize: '13px', color: '#666666', marginBottom: '12px' }}>
                   <span>coming soon</span>
                   <span>stay tuned</span>
                 </div>
 
-
                 <h3 style={{ margin: '0 0 15px 0', color: '#0c1624', fontSize: '19px', fontWeight: '700', lineHeight: '1.4' }}>
                   {event.title}
                 </h3>
-
-                <div style={{
-                  backgroundColor: '#fff9db',
-                  borderLeft: '4px solid #fab005',
-                  padding: '12px',
-                  borderRadius: '4px',
-                  fontSize: '14px',
-                  color: '#444444',
-                  fontWeight: '500',
-                  marginBottom: '25px',
-                  lineHeight: '1.5'
-                }}>
-                </div>
 
                 <button style={{
                   marginTop: 'auto',
@@ -728,7 +672,7 @@ function EventsSection() {
                   color: '#ffffff',
                   border: 'none',
                   borderRadius: '6px',
-                  fontWeight: '6px',
+                  fontWeight: 'bold',
                   fontSize: '14px',
                   cursor: 'pointer',
                   transition: 'background-color 0.2s ease'
@@ -739,131 +683,133 @@ function EventsSection() {
                   Register / Learn More →
                 </button>
               </div>
-
             </div>
           ))}
-
         </div>
+      </div>
+    </section>
+  );
+}
+function ContactSection() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    try {
+
+      const response = await fetch("https://formspree.io/f/xljrlgyd", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("Message sent successfully! We'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        const data = await response.json();
+        setStatus(`Failed: ${data.errors ? data.errors.map(err => err.message).join(', ') : "Submission error"}`);
+      }
+    } catch (error) {
+      console.error("Form submit error:", error);
+      setStatus("Network connection blocked. Please check your internet and try again.");
+    }
+  };
+
+  return (
+    <section style={{ backgroundColor: '#f9f9f9', padding: '30px 20px', minHeight: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ maxWidth: '900px', width: '100%', backgroundColor: '#ffffff', padding: '40px', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }}>
+        
+        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+          <h2 style={{ fontSize: '28px', color: '#0c1624', marginBottom: '10px' }}>Contact Us</h2>
+          <p style={{ color: '#666', fontSize: '15px' }}>We would love to hear from you. Please drop us a message below.</p>
+        </div>
+
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '13px', fontWeight: 'bold', color: '#0c1624', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Full Name</label>
+            <input 
+              type="text" 
+              name="name"
+              required 
+              placeholder="Enter your name" 
+              value={formData.name}
+              onChange={handleChange}
+              style={{ padding: '14px', borderRadius: '8px', border: '1px solid #dcdcdc', outline: 'none', fontSize: '15px', color: '#0c1624' }} 
+            />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '13px', fontWeight: 'bold', color: '#0c1624', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email Address</label>
+            <input 
+              type="email" 
+              name="email"
+              required 
+              placeholder="Enter your email" 
+              value={formData.email}
+              onChange={handleChange}
+              style={{ padding: '14px', borderRadius: '8px', border: '1px solid #dcdcdc', outline: 'none', fontSize: '15px', color: '#0c1624' }} 
+            />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '13px', fontWeight: 'bold', color: '#0c1624', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Your Message</label>
+            <textarea 
+              rows={4} 
+              name="message"
+              required 
+              placeholder="How can we assist you?" 
+              value={formData.message}
+              onChange={handleChange}
+              style={{ padding: '14px', borderRadius: '8px', border: '1px solid #dcdcdc', outline: 'none', resize: 'vertical', fontFamily: 'sans-serif', fontSize: '15px', color: '#0c1624' }} 
+            />
+          </div>
+          <button type="submit" style={{ padding: '14px', backgroundColor: '#0c1624', color: '#ffffff', border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '16px', cursor: 'pointer', transition: 'background-color 0.2s' }}>
+            Send Message
+          </button>
+          {status && (
+            <p style={{ fontSize: '14px', fontWeight: '500', color: status.includes("success") ? "#0a7d3c" : "#b00020", margin: '5px 0 0 0', textAlign: 'center' }}>
+              {status}
+            </p>
+          )}
+        </form>
+
       </div>
     </section>
   );
 }
 
 
-export default function HomePage() {
+
+export default function Page() {
   const [activeTab, setActiveTab] = useState("home");
 
   return (
-    <>
+    <div className="aboutPageWrapper" style={{ fontFamily: 'sans-serif' }}>
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <main style={{ backgroundColor: '#ffffff' }}>
-        {activeTab === "what-we-do" && <WhatWeDoView />}
-        {activeTab === "about-us" && <AboutUsView />}
-        {activeTab === "our-research" && <OurResearchView />}
-        {activeTab === "our-purpose" && <OurPurpose />}
-    
-        {activeTab === "events-section" && <EventsSection />}
+      {activeTab === "home" && <HeroSection setActiveTab={setActiveTab} />}
+      {activeTab === "what-we-do" && <WhatWeDoView />}
+      {activeTab === "our-purpose" && <OurPurpose />}
+      {activeTab === "about-us" && <AboutUsView />}
+      {activeTab === "our-research" && <OurResearchView />}
+      {activeTab === "contact-section" && <ContactSection/>}
+      {activeTab === "events-section" && (
+        <>
+          <EventsSection />
+          <ContactSection />
+        </>
+      )}
 
-        {activeTab === "home" && (
-          <>
-          
-            <div style={{ 
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)), url('/home.png')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              padding: '300px 200px',
-              borderBottom: '1px solid #eee'
-            }}>
-              <div style={{ 
-                maxWidth: '1100px', 
-                margin: '0 auto', 
-                width: '100%',
-                color: '#ffffff',
-                textAlign: 'left',
-                fontFamily: 'sans-serif'
-              }}>
-                <span style={{ fontSize: '11px', letterSpacing: '2px', color: '#cbd5e1', fontWeight: 'bold', textTransform: 'uppercase' }}>
-                  PUBLIC HEALTH • SOCIAL ENTERPRISE • EST. 2023
-                </span>
-                <h1 style={{ fontSize: '46px', margin: '14px 0 24px 0', color: '#ffffff', lineHeight: '1.25', fontWeight: '700', maxWidth: '800px' }}>
-                  Building resilient health systems for the future
-                </h1>
-                <p style={{ color: '#f1f5f9', lineHeight: '1.7', fontSize: '17px', margin: '0 0 40px 0', fontWeight: '400', maxWidth: '760px' }}>
-                  We collaborate with governments, NGOs, and academic institutions to design sustainable public health solutions — powered by research, technology, and measurable impact.
-                </p>
-                
-                <div style={{ display: 'flex', gap: '16px' }}>
-                  <button 
-                    onClick={() => setActiveTab("what-we-do")}
-                    style={{ backgroundColor: '#004d40', color: '#ffffff', border: 'none', padding: '14px 28px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', borderRadius: '4px', transition: 'all 0.2s' }}
-                  >
-                    Explore our services
-                  </button>
-                  <button 
-                    onClick={() => setActiveTab("fundraising")}
-                    style={{ backgroundColor: '#ffffff', color: '#004d40', border: 'none', padding: '14px 28px', fontSize: '15px', fontWeight: '600', cursor: 'pointer', borderRadius: '4px', transition: 'all 0.2s' }}
-                  >
-                    See our impact →
-                  </button>
-                </div>
-              </div>
-            </div>
-      <section className="testimonial-container">
-       <div className="testimonial-content">
-          <span className="testimonial-quote-icon">“</span>
-    
-          <p className="testimonial-text">
-            Excellence in healthcare demands clinical competence, visionary leadership, and unwavering dedication. 
-            The future of medicine depends entirely on our ability to support the talent, ambition, and potential of tomorrow's providers. 
-         By removing barriers, we empower the brightest minds to advance medical research, elevate patient care, and transform global health systems
-         </p>
-    
-       </div>
-        </section>
-
-           
-           
-            <section className="rows-section" style={{ backgroundColor: '#ffffff', padding: '20px 40px' }}>
-              <div style={{ maxWidth: '1100px', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px',maxWidth:'1100px' }}> 
-                
-                <ContentRow 
-                  eyebrow="Nutrition & Food Security"
-                  title="Transforming nutrition research into actionable regional programs"
-                  body="Beyond technological innovation, we actively transform complex nutrition research into actionable regional programs to support community food security. Our team designs sustainable frameworks that systematically improve local nutrition and build resilient distribution systems. We collaborate closely with local stakeholders to shape policy, enhance daily practice, and deliver targeted initiatives that optimize health outcomes across diverse populations."
-                  eyebrowColor="#111111"
-                />
-
-                <ContentRow 
-                  eyebrow="Human Capital"
-                  title="Investing heavily in professional training and upskilling"
-                  body="True systemic impact also requires investing heavily in human capital. We train and upskill public health professionals with modern methodologies and specialized toolkits, ensuring that teams possess the critical competencies required to navigate complex challenges. Strengthening these institutional frameworks improves overall operational scalability, fostering immediate transformation by equipping local personnel with innovative administrative and biological resources."
-                  eyebrowColor="#004d40"
-                />
-
-                <ContentRow 
-                  eyebrow="Policy & Sustainability"
-                  title="Conducting rigorous scientific research to inform national health policies"
-                  body="To ensure long-term sustainability, we conduct rigorous scientific research to inform national health policies through close partnerships with governments and non-governmental organizations. These evidence-based strategies translate deep academic insights into effective legislative frameworks. Working alongside authorities allows us to build resilient infrastructure and design equity-driven solutions tailored to the specific needs of disparate populations."
-                  eyebrowColor="#b71c1c"
-                />
-
-                <ContentRow 
-                  eyebrow="Our Impact"
-                  title="Combining academic investigation with localized implementation"
-                  body="By bringing together a multidisciplinary team of experts, we combine rigorous academic investigation with localized, hands-on implementation to achieve maximum measurable impact. Partners gain exclusive access to innovative methodologies, predictive insights, and sustainable strategies designed to generate lasting health improvements worldwide. Together, we can transform public health frameworks and build a healthier, more resilient future."
-                  eyebrowColor="#e65100"
-                />
-
-              </div>
-            </section>
-            
-            <ScopeSection />
-          </>
-        )}
-      </main>
-      <Footer /> 
-    </>
+      <Footer />
+    </div>
   );
 }

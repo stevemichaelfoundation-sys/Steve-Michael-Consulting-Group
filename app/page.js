@@ -229,8 +229,8 @@ function Footer() {
         </div>
         <div className="footer-links-wrapper">
           <div className="footer-link-group">
-            <span className="footer-group-heading">Contact</span>
-            <Link href="/contact" className="footer-nav-link">Get in touch</Link>
+            {/* <span className="footer-group-heading">Contact</span>
+            <Link href="/contact" className="footer-nav-link">Get in touch</Link> */}
            {/* <Link href="mailto:steve.michael@consultant.com" className="footer-nav-link">
   steve.michael@consultant.com
 </Link> */}
